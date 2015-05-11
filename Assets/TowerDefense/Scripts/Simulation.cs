@@ -6,8 +6,8 @@ public class Simulation {
 
 	private const float LOCKSTEP = 0.33f;
 
-	private List<SimUnitInstance> FriendlySimUnits;
-	private List<SimUnitInstance> EnemySimUnits;
+	private List<SimUnitInstance> FriendlySimUnits = new List<SimUnitInstance>();
+	private List<SimUnitInstance> EnemySimUnits = new List<SimUnitInstance>();
 
 	private float TimeAccumulator = 0.0f;
 
