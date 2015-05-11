@@ -22,8 +22,13 @@ public class Simulation {
 		}
 	}
 
-	public Simulation() {
+	public IRandomNumberGenerator randGen {
+		get;
+		private set;
+	}
 
+	public Simulation(int seed) {
+		randGen = new MersenneTwister(seed);
 	}
 
 	public void AddUnit(SimUnit unittype, Vector3 startingposition, ISimUnitEventHandler EventHandler) {

@@ -14,7 +14,10 @@ public class SimUnitInstance {
 		}
 	}
 
-	private Simulation Sim;
+	public Simulation Sim {
+		get;
+		private set;
+	}
 
 	public float Health {
 		get;
@@ -46,6 +49,7 @@ public class SimUnitInstance {
 
 
 	private List<DamageDef> DamageList = new List<DamageDef>();
+
 
 	public SimUnitInstance(Simulation sim, SimUnit unit, Vector3 startpos, ISimUnitEventHandler handler) {
 		Sim = sim;
@@ -88,7 +92,7 @@ public class SimUnitInstance {
 
 	private void ConditionalDropBonus() {
 		// Determine if we should drop a bonus when killed.
-		if(Random.value < Unit.DropBonusPct) {
+		if(Sim.randGen.NextFloat() < Unit.DropBonusPct) {
 			OnDropBonus(Unit.DropBonus);
 		}
 	}

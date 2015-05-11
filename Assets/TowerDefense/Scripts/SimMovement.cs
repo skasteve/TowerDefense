@@ -9,13 +9,13 @@ public class SimMovement : ScriptableObject {
 	private class InstanceData {
 		public float Speed = 1.0f;
 
-		public InstanceData(SimMovement simmovement) {
-			Speed = Random.Range(simmovement.MinSpeed, simmovement.MaxSpeed);
+		public InstanceData(Simulation sim, SimMovement simmovement) {
+			Speed = simmovement.MinSpeed + (sim.randGen.NextFloat() * (simmovement.MaxSpeed - simmovement.MinSpeed));
 		}
 
 		public static InstanceData GetData(SimMovement simmove, SimUnitInstance instance) {
 			if(instance.MovementData==null) {
-				instance.MovementData = new InstanceData(simmove);
+				instance.MovementData = new InstanceData(instance.Sim, simmove);
 			}
 			return (InstanceData)instance.MovementData;
 		}
