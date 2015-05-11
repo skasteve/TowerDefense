@@ -5,6 +5,6 @@ public interface ISimUnitEventHandler {
 
 	void OnFireProjectile(Vector3 tolocation, SimUnit atunit);
 	void OnExplode();
-	void OnDrop(SimDrop drop);
+	void OnDropBonus(SimDrop drop);
 
 }

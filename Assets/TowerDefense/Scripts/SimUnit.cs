@@ -20,6 +20,7 @@ public class SimUnit : ScriptableObject
 	public float AreaOfPlacement = 10.0f;
 	public float AreaOfAffect = 10.0f;
 
-
+	public float DropBonusPct = 1.0f;
+	public SimDrop DropBonus;
 
 }

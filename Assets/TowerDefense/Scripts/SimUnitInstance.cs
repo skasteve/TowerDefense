@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SimUnitInstance {
 
-	private struct DamageDef {
+	private class DamageDef {
 		public float Amount;
 		public float Delay;
 
@@ -42,13 +42,14 @@ public class SimUnitInstance {
 		}
 	}
 
-	private Vector3 startposition = Vector3.zero;
-	private float starttime = 0.0f;
 	private ISimUnitEventHandler eventhandler;
+
+
+	private List<DamageDef> DamageList = new List<DamageDef>();
 
 	public SimUnitInstance(Simulation sim, SimUnit unit, Vector3 startpos, ISimUnitEventHandler handler) {
 		Sim = sim;
-		Health = sim.health;
+		Health = unit.Health;
 		oldposition = startpos;
 		position = startpos;
 		Unit = unit;
@@ -64,10 +65,31 @@ public class SimUnitInstance {
 		EvaluateMovement(deltatime);
 	}
 
+	public void DoDamage(float Amount, float Delay) {
+		DamageList.Add(new DamageDef(Amount,Delay));
+	}
+
 	private void EvaluateDamage(float deltatime) {
+		//Reverse iterate and remove any damage from the damage list.
+		for(int i=DamageList.Count-1;i>=0;i--) {
+			DamageDef dd = DamageList[i];
+			dd.Delay -= deltatime;
+			if(dd.Delay<=0.0f) {
+				Health -= dd.Amount;
+				DamageList.RemoveAt(i);
+			}
+		}
+
 		if(Health<=0.0f) {
 			ConditionalDropBonus();
 			OnExplode();
+		}
+	}
+
+	private void ConditionalDropBonus() {
+		// Determine if we should drop a bonus when killed.
+		if(Random.value < Unit.DropBonusPct) {
+			OnDropBonus(Unit.DropBonus);
 		}
 	}
 
@@ -79,6 +101,18 @@ public class SimUnitInstance {
 		// Units lock step so only do movement updates here, and any deterministic logic
 		if(Unit.Movement!=null) {
 			Position = Unit.Movement.CalculatePosition(this, deltatime);
+		}
+	}
+	 
+	private void OnExplode() {
+		if(eventhandler!=null) {
+			eventhandler.OnExplode();
+		}
+	}
+
+	private void OnDropBonus(SimDrop bonus) {
+		if(eventhandler!=null) {
+			eventhandler.OnDropBonus(bonus);
 		}
 	}
 }
