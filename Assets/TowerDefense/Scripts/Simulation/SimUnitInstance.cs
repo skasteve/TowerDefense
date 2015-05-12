@@ -144,19 +144,19 @@ public class SimUnitInstance : IOctreeObject {
 
 	private void OnExplode() {
 		if(eventhandler!=null) {
-			eventhandler.OnExplode();
+			eventhandler.OnExplode(this);
 		}
 	}
 
 	private void OnDropBonus(SimDrop bonus) {
 		if(eventhandler!=null) {
-			eventhandler.OnDropBonus(bonus);
+			eventhandler.OnDropBonus(this,bonus);
 		}
 	}
 
 	private void OnFireProjectile(Vector3 impactlocation, float impacttime, SimUnitInstance impactunit) {
 		if(eventhandler!=null) {
-			eventhandler.OnFireProjectile(impactlocation, impacttime, impactunit);
+			eventhandler.OnFireProjectile(this,impactlocation, impacttime, impactunit);
 		}
 	}
 }
