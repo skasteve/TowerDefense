@@ -23,4 +23,4 @@ MonoBehaviour:
   RadiusOfAffect: 10
   DropBonusPct: 1
   DropBonus: {fileID: 0}
-  Cost: 5
+  Cost: 45

@@ -40,4 +40,10 @@ public class UIGame : MonoBehaviour {
 			unitButtons[i].interactable = (_currencyBalance >= units[i].Cost);
 		}
 	}
+
+	public void placeUnit(int unitNum)
+	{
+		incrementCurrency(-units[unitNum].Cost);
+		Debug.Log ("Unit placed: " + units[unitNum].name.ToString() + " $" + units[unitNum].Cost.ToString());
+	}
 }
