@@ -26,4 +26,6 @@ public class SimUnit : ScriptableObject
 	public float DropBonusPct = 1.0f;
 	public SimDrop DropBonus;
 
+	public int Cost = 1;
+
 }
