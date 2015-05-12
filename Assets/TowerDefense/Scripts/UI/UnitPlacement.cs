@@ -7,9 +7,9 @@ using System.Collections;
 public class UnitPlacement : MonoBehaviour
 {
 	public Transform placementPos;
-	public GameObject unitPrefab;
 
 	private Plane _placementPlane;
+	private SimUnit _selectedUnitType = null;
 
 	void Awake()
 	{
@@ -34,6 +34,12 @@ public class UnitPlacement : MonoBehaviour
 	/// <param name="pos">world position</param>
 	private void PlaceUnit(Vector3 pos)
 	{
-		Instantiate(unitPrefab, pos, Quaternion.identity);
+		if (_selectedUnitType != null)
+			Instantiate(_selectedUnitType.UnitPrefab, pos, Quaternion.identity);
+	}
+
+	public void SelectUnit(SimUnit unit)
+	{
+		_selectedUnitType = unit;
 	}
 }

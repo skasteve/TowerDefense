@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: UnitFriendlyBasic
   m_EditorClassIdentifier: 
   Team: 0
+  PowerValue: 1
   Movement: {fileID: 0}
   Projectile: {fileID: 0}
   Speed: 1
@@ -22,3 +23,6 @@ MonoBehaviour:
   RadiusOfAffect: 10
   DropBonusPct: 1
   DropBonus: {fileID: 0}
+  AudioConfig: {fileID: 0}
+  Cost: 1
+  UnitPrefab: {fileID: 172992, guid: 4b650da54a7a54c058cad552542aece8, type: 2}

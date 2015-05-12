@@ -29,4 +29,5 @@ public class SimUnit : ScriptableObject
 	public AudioUnitConfig AudioConfig;
 	public int Cost = 1;
 
+	public GameObject UnitPrefab;
 }

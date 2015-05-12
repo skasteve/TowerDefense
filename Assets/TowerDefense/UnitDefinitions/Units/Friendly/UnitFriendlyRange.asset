@@ -23,4 +23,6 @@ MonoBehaviour:
   RadiusOfAffect: 10
   DropBonusPct: 1
   DropBonus: {fileID: 0}
+  AudioConfig: {fileID: 0}
   Cost: 5
+  UnitPrefab: {fileID: 172992, guid: b319eea44b21640eba8ece80672e2fde, type: 2}
