@@ -21,6 +21,7 @@ public class UIGame : MonoBehaviour {
 
 	public void setScore(int score)
 	{
+		_scoreValue = score;
 		scoreValue.text = score.ToString();
 	}
 
