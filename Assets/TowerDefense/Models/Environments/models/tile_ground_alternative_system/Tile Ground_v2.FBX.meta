@@ -1,0 +1,153 @@
+fileFormatVersion: 2
+guid: ff8c1f9d954c44681ac63ace4013c276
+timeCreated: 1431446008
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: floor_variability_00
+    100002: floor_variability_01
+    100004: floor_variability_02
+    100006: floor_variability_03
+    100008: floor_variability_04
+    100010: floor_variability_05
+    100012: floor_variability_06
+    100014: floor_variability_07
+    100016: floor_variability_08
+    100018: floor_variability_09
+    100020: floor_variability_10
+    100022: floor_variability_11
+    100024: floor_variability_12
+    100026: floor_variability_13
+    100028: floor_variability_14
+    100030: floor_variability_15
+    100032: floor_variability_16
+    100034: //RootNode
+    400000: floor_variability_00
+    400002: floor_variability_01
+    400004: floor_variability_02
+    400006: floor_variability_03
+    400008: floor_variability_04
+    400010: floor_variability_05
+    400012: floor_variability_06
+    400014: floor_variability_07
+    400016: floor_variability_08
+    400018: floor_variability_09
+    400020: floor_variability_10
+    400022: floor_variability_11
+    400024: floor_variability_12
+    400026: floor_variability_13
+    400028: floor_variability_14
+    400030: floor_variability_15
+    400032: floor_variability_16
+    400034: //RootNode
+    2300000: floor_variability_00
+    2300002: floor_variability_01
+    2300004: floor_variability_02
+    2300006: floor_variability_03
+    2300008: floor_variability_04
+    2300010: floor_variability_05
+    2300012: floor_variability_06
+    2300014: floor_variability_07
+    2300016: floor_variability_08
+    2300018: floor_variability_09
+    2300020: floor_variability_10
+    2300022: floor_variability_11
+    2300024: floor_variability_12
+    2300026: floor_variability_13
+    2300028: floor_variability_14
+    2300030: floor_variability_15
+    2300032: floor_variability_16
+    3300000: floor_variability_00
+    3300002: floor_variability_01
+    3300004: floor_variability_02
+    3300006: floor_variability_03
+    3300008: floor_variability_04
+    3300010: floor_variability_05
+    3300012: floor_variability_06
+    3300014: floor_variability_07
+    3300016: floor_variability_08
+    3300018: floor_variability_09
+    3300020: floor_variability_10
+    3300022: floor_variability_11
+    3300024: floor_variability_12
+    3300026: floor_variability_13
+    3300028: floor_variability_14
+    3300030: floor_variability_15
+    3300032: floor_variability_16
+    4300000: floor_variability_00
+    4300002: floor_variability_15
+    4300004: floor_variability_14
+    4300006: floor_variability_11
+    4300008: floor_variability_10
+    4300010: floor_variability_07
+    4300012: floor_variability_03
+    4300014: floor_variability_02
+    4300016: floor_variability_06
+    4300018: floor_variability_05
+    4300020: floor_variability_09
+    4300022: floor_variability_13
+    4300024: floor_variability_12
+    4300026: floor_variability_04
+    4300028: floor_variability_01
+    4300030: floor_variability_08
+    4300032: floor_variability_16
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
