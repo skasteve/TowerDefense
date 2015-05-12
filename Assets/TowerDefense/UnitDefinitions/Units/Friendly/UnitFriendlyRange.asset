@@ -9,9 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c85c464db26c4981a6c9c1156267245, type: 3}
-  m_Name: UnitFriendlyBasic
+  m_Name: UnitFriendlyRange
   m_EditorClassIdentifier: 
   Team: 0
+  PowerValue: 1
   Movement: {fileID: 0}
   Projectile: {fileID: 0}
   Speed: 1
@@ -22,3 +23,4 @@ MonoBehaviour:
   RadiusOfAffect: 10
   DropBonusPct: 1
   DropBonus: {fileID: 0}
+  Cost: 5

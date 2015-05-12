@@ -26,4 +26,7 @@ public class SimUnit : ScriptableObject
 	public float DropBonusPct = 1.0f;
 	public SimDrop DropBonus;
 
+	public AudioUnitConfig AudioConfig;
+	public int Cost = 1;
+
 }

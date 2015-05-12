@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a9dc78570a4384097c245ac3e762ca, type: 3}
+  m_Name: AudioEngineConfig
+  m_EditorClassIdentifier: 
+  ACCMenuLoop: {fileID: 0}
+  ACCAmbientAudio: {fileID: 0}
+  ACCAmbientEvents: {fileID: 0}
+  ACCButtonClicks: {fileID: 11400000, guid: 43e3ba2be2cf7de4296c02dcf69c0a54, type: 2}
+  ACCPlayIncomingWave: {fileID: 11400000, guid: 9070777373ee6154b8d3583bbd708fca,
+    type: 2}
+  ACCPlayStartGame: {fileID: 0}
+  ACCPlayWinGame: {fileID: 0}
+  UnitConfigs:
+  - {fileID: 11400000, guid: 6e177ae7820451a41864c994b6648bdb, type: 2}
