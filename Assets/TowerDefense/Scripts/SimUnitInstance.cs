@@ -109,6 +109,7 @@ public class SimUnitInstance : IOctreeObject {
 	private void EvaluateAttack(float deltatime) {
 		if(Unit.Projectile!=null) {
 			float closestdist = 0.0f;
+			float closestdisttogoal = 0.0f;
 			SimUnitInstance closest = null;
 			IOctreeObject[] objs = Sim.Octtree.GetColliding(new Bounds(position, Vector3.one * Unit.RadiusOfAffect));
 			foreach(IOctreeObject obj in objs) {
@@ -117,16 +118,19 @@ public class SimUnitInstance : IOctreeObject {
 					float disttoobject = Vector3.Distance(this.position, inst.position);
 					if(disttoobject<=Unit.RadiusOfAffect) {
 						float dist = Sim.Goal.GetDistanceToPoint(inst.position);
-						if(closest==null || dist < closestdist) {
+						if(closest==null || dist < closestdisttogoal) {
 							closest = inst;
-							closestdist = dist;
+							closestdisttogoal = dist;
+							closestdist = disttoobject;
 						} 
 					}
 				}
 			}	      
 			if(closest!=null) {
 				//Attack closest to goal
-
+				float impacttime = closestdist / Unit.Projectile.Speed;
+				closest.DoDamage(Unit.Projectile.DamageAmount, impacttime);
+				OnFireProjectile(closest.position, impacttime, closest);
 			}
 		}
 	}
@@ -147,6 +151,12 @@ public class SimUnitInstance : IOctreeObject {
 	private void OnDropBonus(SimDrop bonus) {
 		if(eventhandler!=null) {
 			eventhandler.OnDropBonus(bonus);
+		}
+	}
+
+	private void OnFireProjectile(Vector3 impactlocation, float impacttime, SimUnitInstance impactunit) {
+		if(eventhandler!=null) {
+			eventhandler.OnFireProjectile(impactlocation, impacttime, impactunit);
 		}
 	}
 }
