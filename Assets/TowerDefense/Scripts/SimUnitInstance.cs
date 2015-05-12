@@ -63,7 +63,7 @@ public class SimUnitInstance : IOctreeObject {
 	}
 
 	public Bounds ObjectBounds() {
-		return new Bounds(position, new Vector3(Unit.RadiusOfCollision, Unit.RadiusOfCollision, Unit.RadiusOfCollision));
+		return new Bounds(position, Vector3.one * Unit.RadiusOfCollision);
 	}
 	
 	public void NonDeterministicUpdate(float deltatime) {
@@ -107,8 +107,28 @@ public class SimUnitInstance : IOctreeObject {
 	}
 
 	private void EvaluateAttack(float deltatime) {
+		if(Unit.Projectile!=null) {
+			float closestdist = 0.0f;
+			SimUnitInstance closest = null;
+			IOctreeObject[] objs = Sim.Octtree.GetColliding(new Bounds(position, Vector3.one * Unit.RadiusOfAffect));
+			foreach(IOctreeObject obj in objs) {
+				SimUnitInstance inst = (SimUnitInstance)obj;
+				if(inst!=null) {
+					float disttoobject = Vector3.Distance(this.position, inst.position);
+					if(disttoobject<=Unit.RadiusOfAffect) {
+						float dist = Sim.Goal.GetDistanceToPoint(inst.position);
+						if(closest==null || dist < closestdist) {
+							closest = inst;
+							closestdist = dist;
+						} 
+					}
+				}
+			}	      
+			if(closest!=null) {
+				//Attack closest to goal
 
-
+			}
+		}
 	}
 
 	private void EvaluateMovement(float deltatime) {
@@ -117,7 +137,7 @@ public class SimUnitInstance : IOctreeObject {
 			Position = Unit.Movement.CalculatePosition(this, deltatime);
 		}
 	}
-	 
+
 	private void OnExplode() {
 		if(eventhandler!=null) {
 			eventhandler.OnExplode();

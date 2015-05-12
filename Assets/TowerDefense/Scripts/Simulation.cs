@@ -32,11 +32,17 @@ public class Simulation {
 		private set;
 	}
 
-	public Simulation(int seed) {
+	public Plane Goal {
+		get;
+		private set;
+	}
+
+	public Simulation(int seed, Plane goal) {
+		Goal = goal;
 		randGen = new MersenneTwister(seed);
 		Octtree = new BoundsOctree<IOctreeObject>(1000.0f,Vector3.zero,10.0f,1);
 	}
-
+	
 	public void AddUnit(SimUnit unittype, Vector3 startingposition, ISimUnitEventHandler EventHandler) {
 		SimUnitInstance inst = new SimUnitInstance(this, unittype, startingposition, EventHandler);
 		if(unittype.Team==SimUnit.ETeam.Friendly) {
