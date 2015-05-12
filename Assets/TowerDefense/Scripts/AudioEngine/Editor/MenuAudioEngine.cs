@@ -1,25 +1,29 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections;
 using System.IO;
 
-public static class ScriptableObjectUtility
-{
-	
-	[MenuItem("TowerDefense/Simulation/Create Movement Type")]
-	public static void CreateMovementType() {
-		CreateAsset<SimMovement>();
+public static class MenuAudioEngine {
+	[MenuItem("TowerDefense/Audio/Create Audio Engine")]
+	public static void CreateAudioEngineConfig() {
+		CreateAsset<AudioEngineConfig>();
 	}
-	
-	[MenuItem("TowerDefense/Simulation/Create Projectile Type")]
-	public static void CreateProjectileType() {
-		CreateAsset<SimProjectile>();
+
+	[MenuItem("TowerDefense/Audio/Create Audio Unit", false, 10)]
+	public static void CreateAudioUnitConfig() {
+		CreateAsset<AudioUnitConfig>();
 	}
-	
-	[MenuItem("TowerDefense/Simulation/Create Unit Type")]
-	public static void CreateUnitType() {
-		CreateAsset<SimUnit>();
+
+	[MenuItem("TowerDefense/Audio/Create Audio Projectile", false, 10)]
+	public static void CreateAudioProjectileConfig() {
+		CreateAsset<AudioProjectileConfig>();
 	}
-	
+
+	[MenuItem("TowerDefense/Audio/Create Audio Collection", false, 10)]
+	public static void CreateAudioClipsCollection() {
+		CreateAsset<AudioClipsCollection>();
+	}
+
 	/// <summary>
 	//	This makes it easy to create, name and place unique new ScriptableObject asset files.
 	/// </summary>
