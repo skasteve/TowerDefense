@@ -11,6 +11,8 @@ public class SimUnit : ScriptableObject
 
 	public ETeam Team = ETeam.Friendly;
 
+	public float PowerValue = 1.0f;
+
 	public SimMovement Movement;
 	public SimProjectile Projectile;
 
