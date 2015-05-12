@@ -1,13 +1,31 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: a0ef7b7fdab6fe446855133cea52f5cb
 timeCreated: 1431459796
+=======
+<<<<<<< HEAD
+guid: f724ee55ead2e4332a93fc5934319e6b
+timeCreated: 1431458552
+=======
+guid: a0ef7b7fdab6fe446855133cea52f5cb
+timeCreated: 1431459796
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 licenseType: Free
 AudioImporter:
   serializedVersion: 6
   defaultSettings:
     loadType: 0
     sampleRateSetting: 0
+<<<<<<< Updated upstream
     sampleRateOverride: 0
+=======
+<<<<<<< HEAD
+    sampleRateOverride: 44100
+=======
+    sampleRateOverride: 0
+>>>>>>> origin/master
+>>>>>>> Stashed changes
     compressionFormat: 1
     quality: 1
     conversionMode: 0
