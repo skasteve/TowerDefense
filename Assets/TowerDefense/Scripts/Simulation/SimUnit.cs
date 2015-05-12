@@ -12,6 +12,8 @@ public class SimUnit : ScriptableObject
 	public ETeam Team = ETeam.Friendly;
 
 	public float PowerValue = 1.0f;
+	public int MinWave = 1;
+	public float spawnChance = .2f;
 
 	public SimMovement Movement;
 	public SimProjectile Projectile;

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c85c464db26c4981a6c9c1156267245, type: 3}
-  m_Name: UnityEnemyBasic
+  m_Name: UnityEnemyMed
   m_EditorClassIdentifier: 
   Team: 0
-  PowerValue: 1
-  MinWave: 0
-  spawnChance: 1
+  PowerValue: 5
+  MinWave: 2
+  spawnChance: .300000012
   Movement: {fileID: 0}
   Projectile: {fileID: 0}
   Speed: 1
