@@ -2,8 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class SimUnitInstance {
-
+public class SimUnitInstance : IOctreeObject {
+	
 	private class DamageDef {
 		public float Amount;
 		public float Delay;
@@ -42,6 +42,8 @@ public class SimUnitInstance {
 		private set {
 			oldposition = position;
 			position = value;
+			Sim.Octtree.Remove(this);
+			Sim.Octtree.Add(this, ObjectBounds());
 		}
 	}
 
@@ -60,13 +62,25 @@ public class SimUnitInstance {
 		eventhandler = handler;
 	}
 
+	public Bounds ObjectBounds() {
+		return new Bounds(position, new Vector3(Unit.RadiusOfCollision, Unit.RadiusOfCollision, Unit.RadiusOfCollision));
+	}
+	
 	public void NonDeterministicUpdate(float deltatime) {
 		// Do any (non-deterministic) processing you want here that can happen multiple times a frame.
 	}
 
 	public void Step(float deltatime) {
-		EvaluateAttack(deltatime);
-		EvaluateMovement(deltatime);
+		if(Health<=0.0f) {
+			ConditionalDropBonus();
+			OnExplode();
+		} else {
+			EvaluateMovement(deltatime);
+			EvaluateDamage(deltatime);
+			if(Health>0.0f) {
+				EvaluateAttack(deltatime);
+			}
+		}
 	}
 
 	public void DoDamage(float Amount, float Delay) {
@@ -83,11 +97,6 @@ public class SimUnitInstance {
 				DamageList.RemoveAt(i);
 			}
 		}
-
-		if(Health<=0.0f) {
-			ConditionalDropBonus();
-			OnExplode();
-		}
 	}
 
 	private void ConditionalDropBonus() {
@@ -98,6 +107,7 @@ public class SimUnitInstance {
 	}
 
 	private void EvaluateAttack(float deltatime) {
+
 
 	}
 

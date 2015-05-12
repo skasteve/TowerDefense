@@ -27,8 +27,14 @@ public class Simulation {
 		private set;
 	}
 
+	public BoundsOctree<IOctreeObject> Octtree {
+		get;
+		private set;
+	}
+
 	public Simulation(int seed) {
 		randGen = new MersenneTwister(seed);
+		Octtree = new BoundsOctree<IOctreeObject>(1000.0f,Vector3.zero,10.0f,1);
 	}
 
 	public void AddUnit(SimUnit unittype, Vector3 startingposition, ISimUnitEventHandler EventHandler) {
@@ -38,6 +44,7 @@ public class Simulation {
 		} else {
 			EnemySimUnits.Add (inst);
 		}
+		Octtree.Add(inst,inst.ObjectBounds());
 	}
 
 	public void Update(float deltatime) {
