@@ -51,6 +51,7 @@ public class Simulation {
 			EnemySimUnits.Add (inst);
 		}
 		Octtree.Add(inst,inst.ObjectBounds());
+		return inst;
 	}
 
 	public void Update(float deltatime) {

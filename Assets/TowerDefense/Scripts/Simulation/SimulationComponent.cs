@@ -39,7 +39,7 @@ public class SimulationComponent : MonoBehaviour, ISimUnitEventHandler {
 			friendlyunit = sim.AddUnit(friendlydef, Vector3.zero, this);
 		}
 		if(GUILayout.Button ("Add Enemy Unit")) {
-			enemyunit = sim.AddUnit(enemydef, Vector3.forward * 20.f, this);
+			enemyunit = sim.AddUnit(enemydef, Vector3.forward * 20.0f, this);
 		}
 	}
 
