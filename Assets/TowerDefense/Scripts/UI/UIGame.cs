@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class UIGame : MonoBehaviour {
 
+	public MainGame mainGame;
+
 	public Text scoreValue;
 	public Text currencyValue;
 	public Text countdownText;
@@ -12,8 +14,6 @@ public class UIGame : MonoBehaviour {
 	public Button[] cancelButtons;
 
 	public SimUnit[] units;
-	
-	private int _currencyBalance = 0;	
 
 	void Awake()
 	{
@@ -25,11 +25,9 @@ public class UIGame : MonoBehaviour {
 		scoreValue.text = score.ToString();
 	}
 
-	public void incrementCurrency(int currency)
+	public void setCurrency(int currency)
 	{
-		_currencyBalance += currency;
-
-		currencyValue.text = _currencyBalance.ToString();
+		currencyValue.text = currency.ToString();
 
 		refreshUnitButtons();
 	}
@@ -38,7 +36,7 @@ public class UIGame : MonoBehaviour {
 	{
 		for (int i = 0; i < unitButtons.Length; i++)
 		{
-			unitButtons[i].interactable = (_currencyBalance >= units[i].Cost);
+			unitButtons[i].interactable = (mainGame.getCurrency() >= units[i].Cost);
 		}
 	}
 
@@ -46,7 +44,7 @@ public class UIGame : MonoBehaviour {
 	{
 		cancelButtons[unitNum].gameObject.SetActive(true);
 
-		incrementCurrency(-units[unitNum].Cost);
+		mainGame.incrementCurrency(-units[unitNum].Cost);
 
 		disableUnitButtons();
 		//Debug.Log ("Unit placed: " + units[unitNum].name.ToString() + " $" + units[unitNum].Cost.ToString());
@@ -54,7 +52,7 @@ public class UIGame : MonoBehaviour {
 
 	public void cancelUnit(int unitNum)
 	{
-		incrementCurrency(units[unitNum].Cost); // refund currency
+		mainGame.incrementCurrency(units[unitNum].Cost); // refund currency
 
 		for (int i = 0; i < cancelButtons.Length; i++)
 		{

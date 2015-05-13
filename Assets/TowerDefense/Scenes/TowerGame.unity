@@ -3727,6 +3727,18 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: selectUnit
       objectReference: {fileID: 0}
+    - target: {fileID: 11424684, guid: 78d738924bbd64fe88070552c1c48a3a, type: 2}
+      propertyPath: mainGame
+      value: 
+      objectReference: {fileID: 21693538}
+    - target: {fileID: 11450580, guid: 78d738924bbd64fe88070552c1c48a3a, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 21693538}
+    - target: {fileID: 11450580, guid: 78d738924bbd64fe88070552c1c48a3a, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: incrementCurrency
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78d738924bbd64fe88070552c1c48a3a, type: 2}
   m_IsPrefabParent: 0
