@@ -21,9 +21,9 @@ public class SimMovement : ScriptableObject {
 		}
 	}
 
-	public Vector3 CalculatePosition(SimUnitInstance instance, float deltatime) {
+	public Vector3 Integrate(SimUnitInstance instance, float deltatime) {
 		InstanceData data = InstanceData.GetData(this, instance);
 
-		return Vector3.forward * (deltatime * data.Speed * instance.Unit.Speed);
+		return instance.Sim.Goal.normal * (deltatime * data.Speed * instance.Unit.Speed) * -1.0f;
 	}
 }

@@ -18,7 +18,7 @@ public class Simulation {
 
 	public float SimTimeAlpha {
 		get {
-			return (SimTime + TimeAccumulator)/LOCKSTEP;
+			return (LOCKSTEP + TimeAccumulator)/LOCKSTEP;
 		}
 	}
 
@@ -74,13 +74,23 @@ public class Simulation {
 			SimTime += LOCKSTEP;
 			TimeAccumulator -= LOCKSTEP;
 
-			foreach(SimUnitInstance inst in EnemySimUnits) {
+			for(int i=EnemySimUnits.Count-1;i>=0;i--) {
+				SimUnitInstance inst = EnemySimUnits[i];
 				inst.Step(LOCKSTEP);
+				if(inst.DeleteMe) {
+					EnemySimUnits.Remove(inst);
+					Octtree.Remove(inst);
+				}
 			}
 
-			foreach(SimUnitInstance inst in FriendlySimUnits) {
+			for(int i=FriendlySimUnits.Count-1;i>=0;i--) {
+				SimUnitInstance inst = FriendlySimUnits[i];
 				inst.Step(LOCKSTEP);
-			}
+				if(inst.DeleteMe) {
+					FriendlySimUnits.RemoveAt(i);
+					Octtree.Remove (inst);
+                }
+            }
 		}
 
 	}

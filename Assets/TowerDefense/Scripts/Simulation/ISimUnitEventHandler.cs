@@ -3,8 +3,9 @@ using System.Collections;
 
 public interface ISimUnitEventHandler {
 
-	void OnFireProjectile(SimUnitInstance sender, Vector3 impactlocation, float impacttime, SimUnitInstance impactunit);
-	void OnExplode(SimUnitInstance sender);
-	void OnDropBonus(SimUnitInstance sender, SimDrop drop);
-
+	void OnSimFireProjectile(SimUnitInstance sender, Vector3 impactlocation, float impacttime, SimUnitInstance impactunit);
+	void OnSimExplode(SimUnitInstance sender);
+	void OnSimDropBonus(SimUnitInstance sender, SimDrop drop);
+	void OnSimReachedGoal(SimUnitInstance sender);
+	void OnSimDestroy(SimUnitInstance sender);
 }

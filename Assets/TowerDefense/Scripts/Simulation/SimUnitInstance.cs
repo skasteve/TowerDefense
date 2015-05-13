@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class SimUnitInstance : IOctreeObject {
 	
@@ -12,6 +13,11 @@ public class SimUnitInstance : IOctreeObject {
 			this.Amount = Amount;
 			this.Delay = Delay;
 		}
+	}
+
+	public bool DeleteMe {
+		get;
+		private set;
 	}
 
 	public Simulation Sim {
@@ -74,6 +80,10 @@ public class SimUnitInstance : IOctreeObject {
 		if(Health<=0.0f) {
 			ConditionalDropBonus();
 			OnExplode();
+			OnDestroy();
+		} else if(Sim.Goal.GetSide(position)==false) {
+			OnReachedGoal();
+			OnDestroy();
 		} else {
 			EvaluateMovement(deltatime);
 			EvaluateDamage(deltatime);
@@ -138,25 +148,48 @@ public class SimUnitInstance : IOctreeObject {
 	private void EvaluateMovement(float deltatime) {
 		// Units lock step so only do movement updates here, and any deterministic logic
 		if(Unit.Movement!=null) {
-			Position = Unit.Movement.CalculatePosition(this, deltatime);
+			Position = position + Unit.Movement.Integrate(this, deltatime);
 		}
 	}
 
 	private void OnExplode() {
 		if(eventhandler!=null) {
-			eventhandler.OnExplode(this);
+			eventhandler.OnSimExplode(this);
 		}
 	}
 
 	private void OnDropBonus(SimDrop bonus) {
 		if(eventhandler!=null) {
-			eventhandler.OnDropBonus(this,bonus);
+			eventhandler.OnSimDropBonus(this,bonus);
 		}
 	}
 
 	private void OnFireProjectile(Vector3 impactlocation, float impacttime, SimUnitInstance impactunit) {
 		if(eventhandler!=null) {
-			eventhandler.OnFireProjectile(this,impactlocation, impacttime, impactunit);
+			eventhandler.OnSimFireProjectile(this,impactlocation, impacttime, impactunit);
 		}
+	}
+
+	private void OnReachedGoal() {
+		try {
+			if(eventhandler!=null) {
+				eventhandler.OnSimReachedGoal(this);
+			}
+		} catch(Exception e) {
+			Debug.LogException(e);
+		}
+	}
+
+	private void OnDestroy() {
+		if(DeleteMe==false) {
+			DeleteMe = true;
+			if(eventhandler!=null) {
+				eventhandler.OnSimDestroy (this);
+			}
+		}
+	}
+
+	public void Destroy() {
+		OnDestroy();
 	}
 }
