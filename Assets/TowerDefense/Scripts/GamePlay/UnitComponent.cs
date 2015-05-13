@@ -11,17 +11,12 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	private SimUnitInstance _simunitinst;
 
-	// Use this for initialization
-	void Start () {
-		SetSimUnit(simunit);
-	}
-
 	public void SetSimUnit(SimUnit inst) {
 		if (_simunitinst == null && inst != null) {
 			simunit = inst;
 			_simunitinst = SimulationComponent.CurrentSim.AddUnit(simunit,transform.position, this);
 
-			SetAreaVisuals();
+			SetAreaVisuals(simunit);
 		}
 	}
 
@@ -32,10 +27,10 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		}
 	}
 
-	void SetAreaVisuals()
+	public void SetAreaVisuals(SimUnit unit)
 	{
-		float placementAreaScale = simunit.RadiusOfPlacement / 2;
-		float attackAreaScale = simunit.RadiusOfAffect / 2;
+		float placementAreaScale = unit.RadiusOfPlacement / 2;
+		float attackAreaScale = unit.RadiusOfAffect / 2;
 
 		placementArea.transform.localScale = new Vector3(placementAreaScale, placementAreaScale, placementAreaScale);
 		attackArea.transform.localScale = new Vector3(attackAreaScale, attackAreaScale, attackAreaScale);

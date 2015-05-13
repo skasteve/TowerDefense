@@ -18,14 +18,14 @@ public class SimulationComponent : MonoBehaviour {
 	}
 
 	// Use this for initialization
-	void StartSim (int seed) {
+	public void StartSim (int seed) {
 		if(CurrentSim==null) {
 			Plane goalplane = new Plane(goal.rotation * Vector3.forward, goal.position);
 			CurrentSim = new Simulation(seed,goalplane);		
 		}
 	}
 
-	void AddUnit(GameObject go, SimUnit unit) {
+	public void AddUnit(GameObject go, SimUnit unit) {
 		UnitComponent ucomp = go.AddComponent<UnitComponent>();
 		ucomp.SetSimUnit(unit);
 	}

@@ -15,7 +15,7 @@ MonoBehaviour:
   PowerValue: 5
   MinWave: 2
   spawnChance: .300000012
-  Movement: {fileID: 0}
+  Movement: {fileID: 11400000, guid: 06311fb1451134c99a75c3dfd8e26a64, type: 2}
   Projectile: {fileID: 0}
   Speed: 1
   Health: 100

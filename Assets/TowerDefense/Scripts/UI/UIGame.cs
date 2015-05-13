@@ -6,12 +6,13 @@ public class UIGame : MonoBehaviour {
 
 	public Text scoreValue;
 	public Text currencyValue;
+	public Text countdownText;
 
 	public Button[] unitButtons;
 
 	public SimUnit[] units;
 	
-	private int _currencyBalance = 0;
+	private int _currencyBalance = 0;	
 
 	void Awake()
 	{

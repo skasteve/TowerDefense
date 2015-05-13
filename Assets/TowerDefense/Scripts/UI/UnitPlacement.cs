@@ -49,8 +49,8 @@ public class UnitPlacement : MonoBehaviour
 
 		placementPreviewObject = (GameObject)Instantiate(_selectedUnitType.UnitPrefab, pos, Quaternion.identity);
 		UnitComponent uc = placementPreviewObject.GetComponent<UnitComponent>();
+		uc.SetAreaVisuals(_selectedUnitType);
 		uc.ShowAreas(true);
-		uc.SetSimUnit(_selectedUnitType);
 	}
 
 	/// <summary>
@@ -63,7 +63,9 @@ public class UnitPlacement : MonoBehaviour
 			return;
 
 		GameObject newUnit = (GameObject)Instantiate(_selectedUnitType.UnitPrefab, pos, Quaternion.identity);
-		placedUnits.Add(newUnit.GetComponent<UnitComponent>());
+		UnitComponent uc = newUnit.GetComponent<UnitComponent>();
+		uc.SetSimUnit(_selectedUnitType);
+		placedUnits.Add(uc);
 
 		GameObject.Destroy(placementPreviewObject);
 
