@@ -27,3 +27,4 @@ MonoBehaviour:
   DropBonus: {fileID: 0}
   AudioConfig: {fileID: 0}
   Cost: 1
+  UnitPrefab: {fileID: 172992, guid: 1ade23fc26bc74010a3ca2621ef504df, type: 2}
