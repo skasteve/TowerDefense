@@ -10,7 +10,7 @@ public class UnitPlacement : MonoBehaviour
 	private SimUnit _selectedUnitType = null;
 
 	private List<UnitComponent> placedUnits = new List<UnitComponent>(); 
-	private bool placingUnit = false;
+	public static bool placingUnit = false;
 	private Vector3 placingPos = Vector3.zero;
 	private GameObject placementPreviewObject;
 

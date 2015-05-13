@@ -43,6 +43,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 493536}
+  - 114: {fileID: 11499300}
   m_Layer: 10
   m_Name: PlayerShip
   m_TagString: nemico
@@ -318,6 +319,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11499300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bd5af8460de546b4876562ff1d36027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!198 &19836820
 ParticleSystem:
   m_ObjectHideFlags: 1
