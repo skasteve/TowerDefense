@@ -9,6 +9,7 @@ public class UIGame : MonoBehaviour {
 	public Text countdownText;
 
 	public Button[] unitButtons;
+	public Button[] cancelButtons;
 
 	public SimUnit[] units;
 	
@@ -41,9 +42,47 @@ public class UIGame : MonoBehaviour {
 		}
 	}
 
-	public void placeUnit(int unitNum)
+	public void selectUnit(int unitNum)
 	{
+		cancelButtons[unitNum].gameObject.SetActive(true);
+
 		incrementCurrency(-units[unitNum].Cost);
-		Debug.Log ("Unit placed: " + units[unitNum].name.ToString() + " $" + units[unitNum].Cost.ToString());
+
+		disableUnitButtons();
+		//Debug.Log ("Unit placed: " + units[unitNum].name.ToString() + " $" + units[unitNum].Cost.ToString());
+	}
+
+	public void cancelUnit(int unitNum)
+	{
+		incrementCurrency(units[unitNum].Cost); // refund currency
+
+		for (int i = 0; i < cancelButtons.Length; i++)
+		{
+			cancelButtons[i].gameObject.SetActive(false);
+		}
+
+		refreshUnitButtons();
+	}
+
+	public void unitPlaced()
+	{
+		hideCancelButtons();
+		refreshUnitButtons();
+	}
+
+	private void disableUnitButtons()
+	{
+		for (int i = 0; i < unitButtons.Length; i++)
+		{
+			unitButtons[i].interactable = false;
+		}
+	}
+
+	private void hideCancelButtons()
+	{
+		for (int i = 0; i < cancelButtons.Length; i++)
+		{
+			cancelButtons[i].gameObject.SetActive(false);
+		}
 	}
 }

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 /// </summary>
 public class UnitPlacement : MonoBehaviour
 {
+	public UIGame gameUI;
 	private SimUnit _selectedUnitType = null;
 
 	private List<UnitComponent> placedUnits = new List<UnitComponent>(); 
@@ -29,14 +30,13 @@ public class UnitPlacement : MonoBehaviour
 					placementPreviewObject.transform.position = placingPos;
 				else
 					CreatePreviewObject(placingPos);
-			}
 
-			if (Input.GetMouseButtonDown(0))
-			{ 
-				if (IsValidPlacement() && placingPos != Vector3.zero)
-				{
-					PlaceUnit(placingPos);
-					_selectedUnitType = null;
+				if (Input.GetMouseButtonDown(0))
+				{ 
+					if (IsValidPlacement() && placingPos != Vector3.zero)
+					{
+						PlaceUnit(placingPos);
+					}
 				}
 			}
 		}
@@ -67,10 +67,9 @@ public class UnitPlacement : MonoBehaviour
 		uc.SetSimUnit(_selectedUnitType);
 		placedUnits.Add(uc);
 
-		GameObject.Destroy(placementPreviewObject);
+		gameUI.unitPlaced();
 
-		ShowPlacedUnitAreas(false);
-		placingUnit = false;
+		CancelPlacementPreview();
 	}
 
 	private bool IsValidPlacement()
@@ -94,6 +93,14 @@ public class UnitPlacement : MonoBehaviour
 		placingUnit = true;
 
 		ShowPlacedUnitAreas(true);
+	}
+
+	public void CancelPlacementPreview()
+	{
+		GameObject.Destroy(placementPreviewObject);
+		_selectedUnitType = null;
+		placingUnit = false;
+		ShowPlacedUnitAreas(false);
 	}
 
 	private void ShowPlacedUnitAreas(bool show)

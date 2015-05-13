@@ -42,4 +42,9 @@ public class MainGame : MonoBehaviour {
 	{
 		waveSpawner.NextWave();
 	}
+
+	private IEnumerator CheckWaveComplete()
+	{
+		yield return new WaitForSeconds(1);
+	}
 }
