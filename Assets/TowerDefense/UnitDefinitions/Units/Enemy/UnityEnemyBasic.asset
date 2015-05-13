@@ -15,7 +15,7 @@ MonoBehaviour:
   PowerValue: 1
   MinWave: 0
   spawnChance: 1
-  Movement: {fileID: 0}
+  Movement: {fileID: 11400000, guid: 97de8111c71fa423593b76b63ff8d9b0, type: 2}
   Projectile: {fileID: 0}
   Speed: 1
   Health: 100
@@ -27,3 +27,4 @@ MonoBehaviour:
   DropBonus: {fileID: 0}
   AudioConfig: {fileID: 0}
   Cost: 1
+  UnitPrefab: {fileID: 0}
