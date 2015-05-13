@@ -13,6 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Team: 0
   PowerValue: 1
+  MinWave: 1
+  spawnChance: .200000003
   Movement: {fileID: 0}
   Projectile: {fileID: 0}
   Speed: 1
@@ -20,7 +22,7 @@ MonoBehaviour:
   FireRate: 1
   RadiusOfCollision: 1
   RadiusOfPlacement: 10
-  RadiusOfAffect: 10
+  RadiusOfAffect: 40
   DropBonusPct: 1
   DropBonus: {fileID: 0}
   AudioConfig: {fileID: 0}
