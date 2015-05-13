@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Simulation {
 
-	private const float LOCKSTEP = 0.33f;
+	private const float LOCKSTEP = 0.033f;
 
 	private List<SimUnitInstance> FriendlySimUnits = new List<SimUnitInstance>();
 	private List<SimUnitInstance> EnemySimUnits = new List<SimUnitInstance>();
