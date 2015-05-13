@@ -124,7 +124,7 @@ public class SimUnitInstance : IOctreeObject {
 			IOctreeObject[] objs = Sim.Octtree.GetColliding(new Bounds(position, Vector3.one * Unit.RadiusOfAffect));
 			foreach(IOctreeObject obj in objs) {
 				SimUnitInstance inst = (SimUnitInstance)obj;
-				if(inst!=null) {
+				if(inst!=null && inst != this && inst.Unit.Team != this.Unit.Team) {
 					float disttoobject = Vector3.Distance(this.position, inst.position);
 					if(disttoobject<=Unit.RadiusOfAffect) {
 						float dist = Sim.Goal.GetDistanceToPoint(inst.position);

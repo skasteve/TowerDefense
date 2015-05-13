@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &110768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 461880}
+  - 114: {fileID: 11429520}
+  m_Layer: 0
+  m_Name: Gun2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &130624
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,6 +29,22 @@ GameObject:
   m_Layer: 15
   m_Name: Plane07_colibri
   m_TagString: Sight
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &148938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 493480}
+  - 114: {fileID: 11471560}
+  m_Layer: 0
+  m_Name: Gun1
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +159,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 497078}
   m_RootOrder: 1
+--- !u!4 &461880
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.583999991, y: .284999996, z: .472000003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 463556}
+  m_RootOrder: 4
 --- !u!4 &463556
 Transform:
   m_ObjectHideFlags: 1
@@ -140,6 +184,8 @@ Transform:
   - {fileID: 497078}
   - {fileID: 417822}
   - {fileID: 474908}
+  - {fileID: 493480}
+  - {fileID: 461880}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &466684
@@ -166,6 +212,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 463556}
   m_RootOrder: 2
+--- !u!4 &493480
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148938}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .583999991, y: .284999996, z: .472000003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 463556}
+  m_RootOrder: 3
 --- !u!4 &497078
 Transform:
   m_ObjectHideFlags: 1
@@ -330,10 +388,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2678684f69ce9e4e98945d5fd119ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  simunit: {fileID: 11400000, guid: bc8aba12a8e0a4bccb5669219146c4c9, type: 2}
   followsim: 1
   placementArea: {fileID: 179154}
   attackArea: {fileID: 185270}
+--- !u!114 &11429520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42183c9b1c4714b40aa8d7bf96f26bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectiles:
+  - {fileID: 11425154, guid: 08010250d8bdd4972b4f22b7ce50b36c, type: 2}
+--- !u!114 &11471560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42183c9b1c4714b40aa8d7bf96f26bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectiles:
+  - {fileID: 11425154, guid: 08010250d8bdd4972b4f22b7ce50b36c, type: 2}
 --- !u!135 &13571314
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 1
   DamageAmount: 1
+  AudioConfig: {fileID: 0}
