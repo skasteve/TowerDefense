@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70218e09dcb43124c8f8703346fa0468, type: 3}
+  m_Name: Machine Gun
+  m_EditorClassIdentifier: 
+  OnFire: {fileID: 11400000, guid: 6c4e93a152afa4d96977bf5259ed96d4, type: 2}
+  OnFireLoop: {fileID: 0}
+  OnImpact: {fileID: 11400000, guid: 02cab652312e14cccb66affd406f1fef, type: 2}

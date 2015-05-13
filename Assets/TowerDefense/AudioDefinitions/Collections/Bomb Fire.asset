@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf175351e20cd5241bd883f9497eb241, type: 3}
-  m_Name: IncomingWaves
+  m_Name: Bomb Fire
   m_EditorClassIdentifier: 
   AudioClips:
-  - {fileID: 8300000, guid: b4c2b8aa054e31443b15bd81d9e651f9, type: 3}
+  - {fileID: 8300000, guid: df06b278f80814b72a21b9f443688a7a, type: 3}
