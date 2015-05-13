@@ -7,6 +7,8 @@ public class WaveSpawner : MonoBehaviour {
 	public Collider spawnArea;
 	public SimUnit[] unitPool;
 
+	public System.Action onWaveComplete;
+
 	private Bounds _spawnArea;
 	private int _currentWave = -1;
 	private List<SimUnit> _waveUnits = new List<SimUnit>();
@@ -79,9 +81,19 @@ public class WaveSpawner : MonoBehaviour {
 
 			GameObject spawnedUnit = (GameObject)Instantiate(unit.UnitPrefab);
 			spawnedUnit.transform.position = spawnPos;
-			spawnedUnit.GetComponent<UnitComponent>().SetSimUnit(unit);
+			UnitComponent unitComponent = spawnedUnit.GetComponent<UnitComponent>();
+			unitComponent.SetSimUnit(unit);
 			spawnedUnit.transform.parent = gameObject.transform;
 			_spawnedUnits.Add(spawnedUnit);
+
+			unitComponent.onSimDestroy += () => {
+				if (!_spawnedUnits.Contains(spawnedUnit))
+					return; // we must already be onto the next wave, ingore it
+
+				_spawnedUnits.Remove(spawnedUnit);
+				if (_spawnedUnits.Count == 0 && onWaveComplete != null)
+					onWaveComplete(); // that was the last unit in the current wave, done!
+			};
 		}
 	}
 }

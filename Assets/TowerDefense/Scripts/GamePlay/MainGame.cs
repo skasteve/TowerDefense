@@ -17,6 +17,8 @@ public class MainGame : MonoBehaviour {
 	{
 		simulation.StartSim(_seed);
 		StartCoroutine(StartCountDown());
+
+		waveSpawner.onWaveComplete += OnWaveComplete;
 	}
 
 	private IEnumerator StartCountDown()
@@ -45,9 +47,9 @@ public class MainGame : MonoBehaviour {
 		waveSpawner.NextWave();
 	}
 
-	private IEnumerator CheckWaveComplete()
+	void OnWaveComplete()
 	{
-		yield return new WaitForSeconds(1);
+		StartCoroutine(StartCountDown());
 	}
 
 	public void incrementCurrency(int currency)

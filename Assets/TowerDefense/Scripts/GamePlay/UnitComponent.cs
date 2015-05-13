@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
@@ -9,6 +10,8 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	public GameObject placementArea;
 	public GameObject attackArea;
+
+	public Action onSimDestroy;
 
 	private SimUnitInstance _simunitinst;
 
@@ -101,6 +104,9 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	public void OnSimDestroy(SimUnitInstance sender) 
 	{
+		if (onSimDestroy != null)
+			onSimDestroy();
+
 		Destroy(gameObject);
 	}
 	#endregion
