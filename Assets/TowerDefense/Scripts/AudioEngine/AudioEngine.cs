@@ -88,11 +88,11 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 	}
 
 	public void PlayProjectileFire(AudioProjectileConfig proj) {
-		CreateSource (proj.OnSpawn.GetRandom(), false);
+		CreateSource (proj.OnFire.GetRandom(), false);
 	}
 
 	public AudioSource PlayProjectileFireLoop(AudioProjectileConfig proj) {
-		return CreateSource (proj.OnSpawnLoop.GetRandom(), true);
+		return CreateSource (proj.OnFireLoop.GetRandom(), true);
 	}
 
 	public void PlayProjectileImpact(AudioProjectileConfig proj) {
