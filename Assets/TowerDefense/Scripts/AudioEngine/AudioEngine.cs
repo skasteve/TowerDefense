@@ -99,6 +99,10 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 		CreateSource (proj.OnImpact.GetRandom(), false);
 	}
 
+	public void PlayPickupCoin() {
+		CreateSource(EngineConfig.ACCPickupCoin.GetRandom(),false);
+	}
+
 	public void StopSourceSafe(AudioSource source) {
 		if(source!=null) {
 			source.Stop ();
@@ -147,6 +151,10 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 		if(GUILayout.Button ("Play Button Click")) {
 			PlayButtonSound();
 		}
+		if(GUILayout.Button ("Play Pickup Coin")) {
+			PlayButtonSound();
+		}
+
 		if(GUILayout.Button ("Play Menu Loop")) {
 			PlayMenuLoop();
 		}
