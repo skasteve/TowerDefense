@@ -161,7 +161,7 @@ MonoBehaviour:
   enemydef: {fileID: 0}
   testUnit: {fileID: 0}
   ShowDebugUI: 0
-  ShowOcttreeObjects: 1
+  ShowOcttreeObjects: 0
   ShowOcttreeChecks: 0
 --- !u!4 &63827623
 Transform:
