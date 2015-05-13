@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48a9dc78570a4384097c245ac3e762ca, type: 3}
   m_Name: AudioEngineConfig
   m_EditorClassIdentifier: 
-  ACCMenuLoop: {fileID: 0}
+  ACCMenuLoop: {fileID: 11400000, guid: eb0d31364fc0749158f692cff8c6cf03, type: 2}
   ACCAmbientAudio: {fileID: 11400000, guid: 078cfb165202c4e38bc5f62f48b195d1, type: 2}
   ACCAmbientEvents: {fileID: 0}
   ACCButtonClicks: {fileID: 11400000, guid: 43e3ba2be2cf7de4296c02dcf69c0a54, type: 2}
@@ -19,6 +19,7 @@ MonoBehaviour:
     type: 2}
   ACCPlayStartGame: {fileID: 11400000, guid: a84b71fbe7f6f42c5a95f2cfaf8ecd35, type: 2}
   ACCPlayWinGame: {fileID: 11400000, guid: c673df4c04ea445fd830bae40ec2aa69, type: 2}
+  ACCPickupCoin: {fileID: 11400000, guid: c635aecb92a4146e6af14f38cdc978cd, type: 2}
   UnitConfigs:
   - {fileID: 11400000, guid: 5f07254d0aebf4ebaa29f51c582c6a75, type: 2}
   - {fileID: 11400000, guid: 6e177ae7820451a41864c994b6648bdb, type: 2}
