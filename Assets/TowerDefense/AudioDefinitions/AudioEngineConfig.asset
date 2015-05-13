@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Name: AudioEngineConfig
   m_EditorClassIdentifier: 
   ACCMenuLoop: {fileID: 0}
-  ACCAmbientAudio: {fileID: 0}
+  ACCAmbientAudio: {fileID: 11400000, guid: 078cfb165202c4e38bc5f62f48b195d1, type: 2}
   ACCAmbientEvents: {fileID: 0}
   ACCButtonClicks: {fileID: 11400000, guid: 43e3ba2be2cf7de4296c02dcf69c0a54, type: 2}
   ACCPlayIncomingWave: {fileID: 11400000, guid: 9070777373ee6154b8d3583bbd708fca,
     type: 2}
-  ACCPlayStartGame: {fileID: 0}
-  ACCPlayWinGame: {fileID: 0}
+  ACCPlayStartGame: {fileID: 11400000, guid: a84b71fbe7f6f42c5a95f2cfaf8ecd35, type: 2}
+  ACCPlayWinGame: {fileID: 11400000, guid: c673df4c04ea445fd830bae40ec2aa69, type: 2}
   UnitConfigs:
+  - {fileID: 11400000, guid: 5f07254d0aebf4ebaa29f51c582c6a75, type: 2}
   - {fileID: 11400000, guid: 6e177ae7820451a41864c994b6648bdb, type: 2}
+  WeaponConfigs:
+  - {fileID: 11400000, guid: 9de9a43711116434783ce75a1a5edf85, type: 2}
+  - {fileID: 11400000, guid: 330177d7622c74ff0b3ab4bb99caf329, type: 2}

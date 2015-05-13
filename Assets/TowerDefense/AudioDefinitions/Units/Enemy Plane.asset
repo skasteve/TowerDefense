@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e3b0ac0304a5f764ea0b5d5d95255397, type: 3}
-  m_Name: New AudioUnitConfig
+  m_Name: Enemy Plane
   m_EditorClassIdentifier: 
   OnUnitPlaced: {fileID: 0}
   OnUnitPlacedLoop: {fileID: 0}
-  OnExplode: {fileID: 11400000, guid: 925679ba9404d284797d0e0c9cc6cdfe, type: 2}
+  OnExplode: {fileID: 11400000, guid: 332a405cdedd24cd188b6da21a2a74b9, type: 2}
   OnReachedGoal: {fileID: 0}

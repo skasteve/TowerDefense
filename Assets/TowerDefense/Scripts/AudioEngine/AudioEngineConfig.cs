@@ -10,6 +10,7 @@ public class AudioEngineConfig : ScriptableObject {
 	public AudioClipsCollection ACCPlayIncomingWave;
 	public AudioClipsCollection ACCPlayStartGame;
 	public AudioClipsCollection ACCPlayWinGame;
+	public AudioClipsCollection ACCPickupCoin;
 
 	public List<AudioUnitConfig> UnitConfigs;
 	public List<AudioProjectileConfig> WeaponConfigs;

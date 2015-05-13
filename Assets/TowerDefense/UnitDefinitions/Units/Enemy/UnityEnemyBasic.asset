@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c85c464db26c4981a6c9c1156267245, type: 3}
   m_Name: UnityEnemyBasic
   m_EditorClassIdentifier: 
-  Team: 0
+  Team: 1
   PowerValue: 1
   MinWave: 0
   spawnChance: 1
-  Movement: {fileID: 11400000, guid: 06311fb1451134c99a75c3dfd8e26a64, type: 2}
+  Movement: {fileID: 11400000, guid: 97de8111c71fa423593b76b63ff8d9b0, type: 2}
   Projectile: {fileID: 0}
   Speed: 1
   Health: 100

@@ -11,9 +11,11 @@ interface IAudioEngine {
 	void PlayStart();
 	void PlayWin();
 	void PlayIncomingWave();
+	void PlayPickupCoin();
 
 	void PlayUnitPlaced(AudioUnitConfig auc);
 	AudioSource PlayUnitPlacedLoop(AudioUnitConfig auc); 
+	void PlayUnitUpgraded(AudioUnitConfig auc);
 
 	void PlayUnitReachedGoal(AudioUnitConfig auc);
 	void PlayExplode(AudioUnitConfig auc);

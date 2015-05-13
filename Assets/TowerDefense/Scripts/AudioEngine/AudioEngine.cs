@@ -67,6 +67,10 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 		CreateSource (auc.OnExplode.GetRandom(), false);
 	}
 
+	public void PlayUnitUpgraded(AudioUnitConfig auc) {
+		CreateSource (auc.OnUpgraded.GetRandom(), false);
+	}
+
 	public void PlayMenuLoop() {
 		PlayAmbientAudio(EngineConfig.ACCMenuLoop.GetRandom());
 	}
@@ -97,6 +101,10 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 
 	public void PlayProjectileImpact(AudioProjectileConfig proj) {
 		CreateSource (proj.OnImpact.GetRandom(), false);
+	}
+
+	public void PlayPickupCoin() {
+		CreateSource(EngineConfig.ACCPickupCoin.GetRandom(),false);
 	}
 
 	public void StopSourceSafe(AudioSource source) {
@@ -147,6 +155,10 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 		if(GUILayout.Button ("Play Button Click")) {
 			PlayButtonSound();
 		}
+		if(GUILayout.Button ("Play Pickup Coin")) {
+			PlayButtonSound();
+		}
+
 		if(GUILayout.Button ("Play Menu Loop")) {
 			PlayMenuLoop();
 		}
@@ -191,6 +203,9 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 				GUILayout.BeginVertical();
 
 				GUILayout.BeginHorizontal();
+				if(GUILayout.Button("Play Upgraded")) {
+					PlayUnitUpgraded(auc);
+				}
 				if(GUILayout.Button ("Play Explode")) {
 					PlayExplode(auc);
 				}

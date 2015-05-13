@@ -6,4 +6,5 @@ public class AudioUnitConfig : ScriptableObject {
 	public AudioClipsCollection OnUnitPlacedLoop;
 	public AudioClipsCollection OnExplode;
 	public AudioClipsCollection OnReachedGoal;
+	public AudioClipsCollection OnUpgraded;
 }

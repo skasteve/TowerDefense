@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Name: IncomingWaves
   m_EditorClassIdentifier: 
   AudioClips:
-  - {fileID: 8300000, guid: fc89086ec791a4e9f806bef24be9da37, type: 3}
-  - {fileID: 8300000, guid: d09fe4b01ced244afb8cdd4d8d41921a, type: 3}
+  - {fileID: 8300000, guid: b4c2b8aa054e31443b15bd81d9e651f9, type: 3}

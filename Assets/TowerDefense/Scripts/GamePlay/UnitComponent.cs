@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
@@ -11,18 +12,22 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	private SimUnitInstance _simunitinst;
 
-	// Use this for initialization
-	void Start () {
-		SetSimUnit(simunit);
-	}
+	private static IDictionary<SimUnitInstance, Transform> _unitMapping = new Dictionary<SimUnitInstance, Transform>();
 
 	public void SetSimUnit(SimUnit inst) {
 		if (_simunitinst == null && inst != null) {
 			simunit = inst;
 			_simunitinst = SimulationComponent.CurrentSim.AddUnit(simunit,transform.position, this);
+			_unitMapping.Add (_simunitinst, this.transform);
 
-			SetAreaVisuals();
+			SetAreaVisuals(simunit);
 		}
+	}
+
+	void OnDestroy()
+	{
+		if (_simunitinst != null)
+			_unitMapping.Remove(_simunitinst);
 	}
 
 	// Update is called once per frame
@@ -32,10 +37,10 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		}
 	}
 
-	void SetAreaVisuals()
+	public void SetAreaVisuals(SimUnit unit)
 	{
-		float placementAreaScale = simunit.RadiusOfPlacement / 2;
-		float attackAreaScale = simunit.RadiusOfAffect / 2;
+		float placementAreaScale = unit.RadiusOfPlacement / 2;
+		float attackAreaScale = unit.RadiusOfAffect / 2;
 
 		placementArea.transform.localScale = new Vector3(placementAreaScale, placementAreaScale, placementAreaScale);
 		attackArea.transform.localScale = new Vector3(attackAreaScale, attackAreaScale, attackAreaScale);
@@ -49,9 +54,34 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	#region ISimUnitEventHandler implementation
 
+	public class EventArgsFireProjectile{
+		public Vector3 impactLocation;
+		public float impactTime;
+		public Transform targetObject;
+		public Transform sourceObject;
+
+		public EventArgsFireProjectile(Vector3 impactLocation, float impactTime, Transform targetObject, Transform sourceObject)
+		{
+			this.impactLocation = impactLocation;
+			this.impactTime = impactTime;
+			this.targetObject = targetObject;
+			this.sourceObject = sourceObject;
+		}
+	}
+
 	public void OnSimFireProjectile (SimUnitInstance sender, Vector3 impactlocation, float impacttime, SimUnitInstance impactunit)
 	{
-		throw new System.NotImplementedException ();
+		Transform target = null;
+
+		_unitMapping.TryGetValue(impactunit, out target);
+
+		EventArgsFireProjectile args = new EventArgsFireProjectile(impactlocation, impacttime, target, this.transform); 
+		ProjectileSpawner[] spawners = GetComponentsInChildren<ProjectileSpawner>();
+
+		foreach(ProjectileSpawner sp in spawners)
+		{
+			sp.fireProjectile(args);
+		}
 	}
 
 	public void OnSimExplode (SimUnitInstance sender)
