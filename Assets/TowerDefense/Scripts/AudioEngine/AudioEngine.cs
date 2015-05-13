@@ -67,6 +67,10 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 		CreateSource (auc.OnExplode.GetRandom(), false);
 	}
 
+	public void PlayUnitUpgraded(AudioUnitConfig auc) {
+		CreateSource (auc.OnUpgraded.GetRandom(), false);
+	}
+
 	public void PlayMenuLoop() {
 		PlayAmbientAudio(EngineConfig.ACCMenuLoop.GetRandom());
 	}
@@ -199,6 +203,9 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 				GUILayout.BeginVertical();
 
 				GUILayout.BeginHorizontal();
+				if(GUILayout.Button("Play Upgraded")) {
+					PlayUnitUpgraded(auc);
+				}
 				if(GUILayout.Button ("Play Explode")) {
 					PlayExplode(auc);
 				}
