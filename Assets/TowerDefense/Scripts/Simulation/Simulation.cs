@@ -9,6 +9,7 @@ public class Simulation {
 	private List<SimUnitInstance> FriendlySimUnits = new List<SimUnitInstance>();
 	private List<SimUnitInstance> EnemySimUnits = new List<SimUnitInstance>();
 
+
 	private float TimeAccumulator = 0.0f;
 
 	public float SimTime {

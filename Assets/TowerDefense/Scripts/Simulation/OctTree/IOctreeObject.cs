@@ -2,5 +2,5 @@
 using System.Collections;
 
 public interface IOctreeObject {
-	Bounds ObjectBounds();
+	Bounds ObjectBounds { get; }
 }

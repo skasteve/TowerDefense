@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class SimUnitInstance : IOctreeObject {
+public class SimUnitInstance : SimObject {
 	
 	private class DamageDef {
 		public float Amount;
@@ -15,16 +15,6 @@ public class SimUnitInstance : IOctreeObject {
 		}
 	}
 
-	public bool DeleteMe {
-		get;
-		private set;
-	}
-
-	public Simulation Sim {
-		get;
-		private set;
-	}
-
 	public float Health {
 		get;
 		private set;
@@ -33,24 +23,6 @@ public class SimUnitInstance : IOctreeObject {
 	public SimUnit Unit {
 		get;
 		private set;
-	}
-
-	public object MovementData = null;
-
-	private Vector3 position;
-	private Vector3 oldposition;
-	private float lasttime;
-	public Vector3 Position {
-		get {
-			//Interpolate the position from last to next
-			return Vector3.Lerp(oldposition, position, Sim.SimTimeAlpha);
-		}
-		private set {
-			oldposition = position;
-			position = value;
-			Sim.Octtree.Remove(this);
-			Sim.Octtree.Add(this, ObjectBounds());
-		}
 	}
 
 	private ISimUnitEventHandler eventhandler;
@@ -66,6 +38,7 @@ public class SimUnitInstance : IOctreeObject {
 		position = startpos;
 		Unit = unit;
 		eventhandler = handler;
+		this.OnDestroy += handler.OnDestroyEventHandler;
 	}
 
 	public Bounds ObjectBounds() {
@@ -76,7 +49,7 @@ public class SimUnitInstance : IOctreeObject {
 		// Do any (non-deterministic) processing you want here that can happen multiple times a frame.
 	}
 
-	public void Step(float deltatime) {
+	public override void Step(float deltatime) {
 		if(Health<=0.0f) {
 			ConditionalDropBonus();
 			OnExplode();
@@ -85,7 +58,7 @@ public class SimUnitInstance : IOctreeObject {
 			OnReachedGoal();
 			OnDestroy();
 		} else {
-			EvaluateMovement(deltatime);
+			base.Step(deltatime);
 			EvaluateDamage(deltatime);
 			if(Health>0.0f) {
 				EvaluateAttack(deltatime);
@@ -178,18 +151,5 @@ public class SimUnitInstance : IOctreeObject {
 		} catch(Exception e) {
 			Debug.LogException(e);
 		}
-	}
-
-	private void OnDestroy() {
-		if(DeleteMe==false) {
-			DeleteMe = true;
-			if(eventhandler!=null) {
-				eventhandler.OnSimDestroy (this);
-			}
-		}
-	}
-
-	public void Destroy() {
-		OnDestroy();
 	}
 }
