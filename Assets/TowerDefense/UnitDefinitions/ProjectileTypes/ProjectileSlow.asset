@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2d594f48d3ec4564af242bc18319d0f, type: 3}
-  m_Name: ProjectileBasic
+  m_Name: ProjectileSlow
   m_EditorClassIdentifier: 
-  Speed: 20
-  DamageAmount: 10
+  Speed: 10
+  DamageAmount: 40
   AudioConfig: {fileID: 0}

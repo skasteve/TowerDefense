@@ -8,9 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2d594f48d3ec4564af242bc18319d0f, type: 3}
-  m_Name: ProjectileBasic
+  m_Script: {fileID: 11500000, guid: 7b0558178b59745ec92d8ceaefce2c11, type: 3}
+  m_Name: MovementFriendlyWobble
   m_EditorClassIdentifier: 
-  Speed: 20
-  DamageAmount: 10
-  AudioConfig: {fileID: 0}
+  MinSpeed: 0
+  MaxSpeed: 0
+  WobbleFrequency: {x: .0500000007, y: 0, z: 0}
+  WobbleAmplitute: {x: .00499999989, y: 0, z: 0}

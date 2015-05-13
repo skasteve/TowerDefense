@@ -42,8 +42,8 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	public void SetAreaVisuals(SimUnit unit)
 	{
-		float placementAreaScale = unit.RadiusOfPlacement / 2;
-		float attackAreaScale = unit.RadiusOfAffect / 2;
+		float placementAreaScale = unit.RadiusOfPlacement;
+		float attackAreaScale = unit.RadiusOfAffect;
 
 		placementArea.transform.localScale = new Vector3(placementAreaScale, placementAreaScale, placementAreaScale);
 		attackArea.transform.localScale = new Vector3(attackAreaScale, attackAreaScale, attackAreaScale);
