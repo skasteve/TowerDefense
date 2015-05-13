@@ -35,6 +35,8 @@ public class SimUnitInstance : IOctreeObject {
 		private set;
 	}
 
+	private float nextFireTime = 0.0f;
+
 	public object MovementData = null;
 
 	private Vector3 position;
@@ -117,7 +119,7 @@ public class SimUnitInstance : IOctreeObject {
 	}
 
 	private void EvaluateAttack(float deltatime) {
-		if(Unit.Projectile!=null) {
+		if(Unit.Projectile!=null && Sim.SimTime>=nextFireTime && Unit.FireRate>0.0f) {
 			float closestdist = 0.0f;
 			float closestdisttogoal = 0.0f;
 			SimUnitInstance closest = null;
@@ -142,6 +144,7 @@ public class SimUnitInstance : IOctreeObject {
 				float impacttime = closestdist / Unit.Projectile.Speed;
 				closest.DoDamage(Unit.Projectile.DamageAmount, impacttime);
 				OnFireProjectile(closest.position, impacttime, closest);
+				nextFireTime = Sim.SimTime + 1.0f/Unit.FireRate;
 			}
 		}
 	}

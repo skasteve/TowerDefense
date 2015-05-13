@@ -21,7 +21,6 @@ public class ProjectileComponent : MonoBehaviour {
 	{
 		startTime = Time.time;
 		impactTime = args.impactTime;
-		Debug.Log ("Impact Time = " + impactTime.ToString());
 		targetPos = args.targetObject;
 		startPos = gameObject.transform.position;
 		StartCoroutine(TimeOut());

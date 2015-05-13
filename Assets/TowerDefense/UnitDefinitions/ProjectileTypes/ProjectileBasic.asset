@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d594f48d3ec4564af242bc18319d0f, type: 3}
   m_Name: ProjectileBasic
   m_EditorClassIdentifier: 
-  Speed: 1
-  DamageAmount: 1
+  Speed: 100
+  DamageAmount: 100
   AudioConfig: {fileID: 0}

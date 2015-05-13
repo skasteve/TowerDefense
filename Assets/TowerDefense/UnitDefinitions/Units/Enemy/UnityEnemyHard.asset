@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c85c464db26c4981a6c9c1156267245, type: 3}
   m_Name: UnityEnemyHard
   m_EditorClassIdentifier: 
-  Team: 0
+  Team: 1
   PowerValue: 9
   MinWave: 4
   spawnChance: .100000001
