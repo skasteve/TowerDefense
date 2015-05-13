@@ -11,6 +11,8 @@ public class SimulationComponent : MonoBehaviour {
 	public GameObject testUnit;
 
 	public bool ShowDebugUI = false;
+	public bool ShowOcttreeObjects = false;
+	public bool ShowOcttreeChecks = false;
 
 	public static Simulation CurrentSim {
 		get;
@@ -34,6 +36,17 @@ public class SimulationComponent : MonoBehaviour {
 	void Update () {
 		if(CurrentSim!=null) {
 			CurrentSim.Update(Time.deltaTime);
+		}
+	}
+
+	void OnDrawGizmos() {
+		if(CurrentSim!=null) {
+			if(ShowOcttreeObjects) {
+				CurrentSim.Octtree.DrawAllObjects();
+			}
+			if(ShowOcttreeChecks) {
+				CurrentSim.Octtree.DrawCollisionChecks();
+			}
 		}
 	}
 
