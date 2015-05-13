@@ -16,7 +16,10 @@ public class UnitPlacement : MonoBehaviour
 
 			RaycastHit raycastHit;
 			if (Physics.Raycast(ray, out raycastHit, float.PositiveInfinity, 1 << LayerMask.NameToLayer("PlacementPlane")))
+			{
 				PlaceUnit(ray.GetPoint(raycastHit.distance));
+				_selectedUnitType = null;
+			}
 		}
 	}
 
