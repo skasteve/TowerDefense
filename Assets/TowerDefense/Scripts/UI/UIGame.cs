@@ -10,8 +10,7 @@ public class UIGame : MonoBehaviour {
 	public Button[] unitButtons;
 
 	public SimUnit[] units;
-
-	private int _scoreValue = 0;
+	
 	private int _currencyBalance = 0;
 
 	void Awake()
@@ -21,7 +20,6 @@ public class UIGame : MonoBehaviour {
 
 	public void setScore(int score)
 	{
-		_scoreValue = score;
 		scoreValue.text = score.ToString();
 	}
 
