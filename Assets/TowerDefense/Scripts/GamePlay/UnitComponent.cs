@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
-	public SimUnit simunit;
+	private SimUnit simunit;
 	public bool followsim = true;
 
 	public GameObject placementArea;

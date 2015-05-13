@@ -10,6 +10,8 @@ public class SimulationComponent : MonoBehaviour {
 
 	public GameObject testUnit;
 
+	public bool ShowDebugUI = false;
+
 	public static Simulation CurrentSim {
 		get;
 		private set;
@@ -36,19 +38,21 @@ public class SimulationComponent : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		if(CurrentSim==null && GUILayout.Button("StartSim")) {
-			StartSim(0);
-		}
-		if(CurrentSim!=null && GUILayout.Button ("StopSim")) {
-			CurrentSim = null;
-		}
-		if(CurrentSim!=null && GUILayout.Button ("Add Friendly Unit")) {
-			GameObject inst = (GameObject)Instantiate(testUnit,Random.insideUnitSphere * Random.Range(1,50),Quaternion.identity);
-			AddUnit(inst,friendlydef);
-		}
-		if(CurrentSim!=null && GUILayout.Button ("Add Enemy Unit")) {
-			GameObject inst = (GameObject)Instantiate(testUnit,Random.insideUnitSphere * Random.Range(1,50),Quaternion.identity);
-			AddUnit(inst,enemydef);
+		if(ShowDebugUI) {
+			if(CurrentSim==null && GUILayout.Button("StartSim")) {
+				StartSim(0);
+			}
+			if(CurrentSim!=null && GUILayout.Button ("StopSim")) {
+				CurrentSim = null;
+			}
+			if(CurrentSim!=null && GUILayout.Button ("Add Friendly Unit")) {
+				GameObject inst = (GameObject)Instantiate(testUnit,Random.insideUnitSphere * Random.Range(1,50),Quaternion.identity);
+				AddUnit(inst,friendlydef);
+			}
+			if(CurrentSim!=null && GUILayout.Button ("Add Enemy Unit")) {
+				GameObject inst = (GameObject)Instantiate(testUnit,Random.insideUnitSphere * Random.Range(1,50),Quaternion.identity);
+				AddUnit(inst,enemydef);
+			}
 		}
 	}
 }
