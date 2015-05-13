@@ -14,7 +14,7 @@ public static class MenuAudioEngine {
 		CreateAsset<AudioUnitConfig>();
 	}
 
-	[MenuItem("TowerDefense/Audio/Create Audio Projectile", false, 10)]
+	[MenuItem("TowerDefense/Audio/Create Audio Weapon", false, 10)]
 	public static void CreateAudioProjectileConfig() {
 		CreateAsset<AudioProjectileConfig>();
 	}

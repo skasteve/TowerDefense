@@ -12,4 +12,5 @@ public class AudioEngineConfig : ScriptableObject {
 	public AudioClipsCollection ACCPlayWinGame;
 
 	public List<AudioUnitConfig> UnitConfigs;
+	public List<AudioProjectileConfig> WeaponConfigs;
 }

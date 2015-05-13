@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class AudioProjectileConfig : ScriptableObject {
-	public AudioClipsCollection OnSpawn;
-	public AudioClipsCollection OnSpawnLoop;
+	public AudioClipsCollection OnFire;
+	public AudioClipsCollection OnFireLoop;
 	public AudioClipsCollection OnImpact;
 }

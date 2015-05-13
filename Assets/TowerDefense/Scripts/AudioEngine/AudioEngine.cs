@@ -18,6 +18,8 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 
 	private IList<AudioSource> sourcepool;
 
+	private Vector2 scrollPosition = Vector2.zero;
+
 	// Use this for initialization
 	void Start () {
 		sourcepool = new List<AudioSource>();
@@ -140,6 +142,7 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 		if(!ShowTestUI)
 			return;
 
+		scrollPosition = GUILayout.BeginScrollView(scrollPosition);
 		GUILayout.BeginHorizontal();
 		if(GUILayout.Button ("Play Button Click")) {
 			PlayButtonSound();
@@ -216,5 +219,40 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 			GUILayout.EndHorizontal();
 		}
 
+		foreach(AudioProjectileConfig proj in EngineConfig.WeaponConfigs) {
+			GUILayout.Label(" ");
+			GUILayout.Label("Weapon " + proj.ToString());
+			GUILayout.BeginHorizontal();
+			GUILayout.FlexibleSpace();
+			{
+				GUILayout.BeginVertical();
+				
+				GUILayout.BeginHorizontal();
+				if(GUILayout.Button ("Play Fire")) {
+					PlayProjectileFire(proj);
+				}
+				if(GUILayout.Button ("Play Fire Loop")) {
+					StopSourceSafe(tmpsource);
+					tmpsource = PlayProjectileFireLoop(proj);
+				}
+				if(GUILayout.Button ("Play Projectile Impact")) {
+					PlayProjectileImpact(proj);
+				}
+				if(GUILayout.Button ("Stop Fire Loop")) {
+					StopSourceSafe(tmpsource);
+				}
+				GUILayout.EndHorizontal();
+				
+				GUILayout.BeginHorizontal();
+				GUILayout.BeginVertical();
+				GUILayout.EndVertical();
+				GUILayout.EndHorizontal();
+				
+				GUILayout.EndVertical();
+			}
+			GUILayout.EndHorizontal();
+		}
+
+		GUILayout.EndScrollView();
 	}
 }
