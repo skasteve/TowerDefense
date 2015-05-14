@@ -72,6 +72,8 @@ public class SimObjectInstance : IOctreeObject {
 	public virtual void Step(float deltatime) {
 		if(!DeleteMe) {
 			EvaluateMovement(deltatime);
+			EvaluateCollision();
+			EvaluateStep(deltatime);
 		}
 	}
 
@@ -82,8 +84,26 @@ public class SimObjectInstance : IOctreeObject {
 		}
 	}
 
+	private void EvaluateCollision() {
+		if(SimObjectConfig.EnableCollisionCheck) {
+			IOctreeObject[] objs = Sim.Octtree.GetColliding(ObjectBounds);
+			foreach(IOctreeObject obj in objs) {
+				if(obj!=this) {
+					SimObjectInstance inst = (SimObjectInstance)obj;
+					if(inst!=null) {
+						ObjectCollision(inst);
+					}
+				}
+			}
+		}
+	}
+
 	protected virtual void EvaluateStep(float deltatime) {
-		// override to perform any other evaluations
+		// override to do custom work per sim step.
+	}
+
+	protected virtual void ObjectCollision(SimObjectInstance obj) {
+		// override to do actual collision work.
 
 	}
 

@@ -20,7 +20,7 @@ public class SimUnitInstance : SimObjectInstance {
 		private set;
 	}
 
-	public SimUnitConfig Unit {
+	public SimUnitConfig UnitConfig {
 		get;
 		private set;
 	}
@@ -34,7 +34,7 @@ public class SimUnitInstance : SimObjectInstance {
 
 	public SimUnitInstance(Simulation sim, SimUnitConfig unit, Vector3 startpos, ISimUnitEventHandler handler) : base(sim, unit, startpos) {
 		Health = unit.Health;
-		Unit = unit;
+		UnitConfig = unit;
 		eventhandler = handler;
 		this.OnDestroy += handler.OnDestroyEventHandler;
 	}
@@ -78,22 +78,22 @@ public class SimUnitInstance : SimObjectInstance {
 
 	private void ConditionalDropBonus() {
 		// Determine if we should drop a bonus when killed.
-		if(Sim.randGen.NextFloat() < Unit.DropBonusPct) {
-			OnDropBonus(Unit.DropBonus);
+		if(Sim.randGen.NextFloat() < UnitConfig.DropBonusPct) {
+			OnDropBonus(UnitConfig.DropBonus);
 		}
 	}
 
 	private void EvaluateAttack(float deltatime) {
-		if(Unit.WeaponConfig!=null && Sim.SimTime>=nextFireTime && Unit.FireRate>0.0f) {
+		if(UnitConfig.WeaponConfig!=null && Sim.SimTime>=nextFireTime && UnitConfig.FireRate>0.0f) {
 			float closestdist = 0.0f;
 			float closestdisttogoal = 0.0f;
 			SimUnitInstance closest = null;
-			IOctreeObject[] objs = Sim.Octtree.GetColliding(new Bounds(simposition, Vector3.one * Unit.RadiusOfAffect));
+			IOctreeObject[] objs = Sim.Octtree.GetColliding(new Bounds(simposition, Vector3.one * UnitConfig.RadiusOfAffect));
 			foreach(IOctreeObject obj in objs) {
 				SimUnitInstance inst = (SimUnitInstance)obj;
-				if(inst!=null && inst != this && inst.Unit.Team != this.Unit.Team) {
+				if(inst!=null && inst != this && inst.UnitConfig.Team != this.UnitConfig.Team) {
 					float disttoobject = Vector3.Distance(this.simposition, inst.simposition);
-					if(disttoobject<=Unit.RadiusOfAffect) {
+					if(disttoobject<=UnitConfig.RadiusOfAffect) {
 						float dist = Sim.Goal.GetDistanceToPoint(inst.simposition);
 						if(closest==null || dist < closestdisttogoal) {
 							closest = inst;
@@ -105,10 +105,10 @@ public class SimUnitInstance : SimObjectInstance {
 			}	      
 			if(closest!=null) {
 				//Attack closest to goal
-				float impacttime = closestdist / Unit.WeaponConfig.Speed;
-				closest.DoDamage(Unit.WeaponConfig.DamageAmount, impacttime);
+				float impacttime = closestdist / UnitConfig.WeaponConfig.Speed;
+				closest.DoDamage(UnitConfig.WeaponConfig.DamageAmount, impacttime);
 				OnFireWeapon(closest.simposition, impacttime, closest);
-				nextFireTime = Sim.SimTime + 1.0f/Unit.FireRate;
+				nextFireTime = Sim.SimTime + 1.0f/UnitConfig.FireRate;
 			}
 		}
 	}
