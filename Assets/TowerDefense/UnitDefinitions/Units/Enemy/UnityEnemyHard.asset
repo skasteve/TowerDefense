@@ -13,6 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Movement: {fileID: 11400000, guid: 06311fb1451134c99a75c3dfd8e26a64, type: 2}
   RadiusOfCollision: 1
+  EnableCollisionCheck: 0
+  AddToOcttree: 1
   Team: 1
   PowerValue: 9
   MinWave: 4

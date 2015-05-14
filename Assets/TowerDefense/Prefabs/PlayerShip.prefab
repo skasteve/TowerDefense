@@ -18,6 +18,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &122312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 498568}
+  - 114: {fileID: 11457564}
+  m_Layer: 10
+  m_Name: maingunRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &143658
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,6 +46,22 @@ GameObject:
   - 199: {fileID: 19949378}
   m_Layer: 10
   m_Name: trail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &146138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 451316}
+  - 114: {fileID: 11495976}
+  m_Layer: 10
+  m_Name: maingunLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -140,6 +172,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 493536}
   m_RootOrder: 1
+--- !u!4 &451316
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.439999998, y: 0, z: .344000012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493536}
+  m_RootOrder: 5
 --- !u!4 &452308
 Transform:
   m_ObjectHideFlags: 1
@@ -179,8 +223,22 @@ Transform:
   - {fileID: 409758}
   - {fileID: 481676}
   - {fileID: 452308}
+  - {fileID: 451316}
+  - {fileID: 498568}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &498568
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .43900001, y: 0, z: .344000012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 493536}
+  m_RootOrder: 6
 --- !u!23 &2301002
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -319,6 +377,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11457564
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb9a96f2018f4be7b54324d3c6bc95a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProjectileComponent: {fileID: 11449100, guid: e54c7e83e836f4cc18557b5efb02d473,
+    type: 2}
+--- !u!114 &11495976
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 146138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb9a96f2018f4be7b54324d3c6bc95a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ProjectileComponent: {fileID: 11449100, guid: e54c7e83e836f4cc18557b5efb02d473,
+    type: 2}
 --- !u!114 &11499300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -330,6 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd5af8460de546b4876562ff1d36027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireRate: 2
   speed: 5
 --- !u!198 &19836820
 ParticleSystem:

@@ -36,7 +36,7 @@ public class BoundsOctree<T> {
 	readonly float minSize;
 	// For collision visualisation. Automatically removed in builds.
 	#if UNITY_EDITOR
-	const int numCollisionsToSave = 4;
+	const int numCollisionsToSave = 40; 
 	readonly Queue<Bounds> lastCollisionChecks = new Queue<Bounds>();
 	#endif
 	

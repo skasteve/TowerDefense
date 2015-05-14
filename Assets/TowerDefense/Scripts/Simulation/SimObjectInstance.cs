@@ -2,12 +2,12 @@
 using System.Collections;
 using System;
 
-public class SimObjectInstance : IOctreeObject {
+public abstract class SimObjectInstance : IOctreeObject {
 	
 	public delegate void OnDestroyEventHandler(object sender, EventArgs e);
 	public event OnDestroyEventHandler OnDestroy;
 
-	public SimObjectConfig SimObjectConfig {
+	public SimObjectConfig ObjectConfig {
 		get;
 		private set;
 	}
@@ -26,20 +26,9 @@ public class SimObjectInstance : IOctreeObject {
 		}
 	}
 
-	private float _RadiusOfCollision;
-	public float RadiusOfCollision {
-		get {
-			return _RadiusOfCollision;
-		}
-		set {
-			_RadiusOfCollision = value;
-			UpdateOcttree();
-		}
-	}
-
 	public Bounds ObjectBounds {
 		get {
-			return new Bounds(simposition, Vector3.one * RadiusOfCollision);
+			return new Bounds(simposition, Vector3.one * ObjectConfig.RadiusOfCollision);
 		}
 	}
 	
@@ -59,14 +48,17 @@ public class SimObjectInstance : IOctreeObject {
 
 	public SimObjectInstance(Simulation sim, SimObjectConfig simobject, Vector3 startpos) {
 		Sim = sim;
-		SimObjectConfig = simobject;
+		ObjectConfig = simobject;
 		oldposition = startpos;
 		simposition = startpos;
+		UpdateOcttree();
 	}
 
 	private void UpdateOcttree() {
-		Sim.Octtree.Remove(this);
-		Sim.Octtree.Add(this, ObjectBounds);
+		if(ObjectConfig.AddToOcttree) {
+			Sim.Octtree.Remove(this);
+			Sim.Octtree.Add(this, ObjectBounds);
+		}
 	}
 
 	public virtual void Step(float deltatime) {
@@ -79,13 +71,13 @@ public class SimObjectInstance : IOctreeObject {
 
 	private void EvaluateMovement(float deltatime) {
 		// Units lock step so only do movement updates here, and any deterministic logic
-		if(SimObjectConfig.Movement!=null) {
-			Position = simposition + SimObjectConfig.Movement.Integrate(this, deltatime);
+		if(ObjectConfig.Movement!=null) {
+			Position = simposition + ObjectConfig.Movement.Integrate(this, deltatime);
 		}
 	}
 
 	private void EvaluateCollision() {
-		if(SimObjectConfig.EnableCollisionCheck) {
+		if(ObjectConfig.EnableCollisionCheck) {
 			IOctreeObject[] objs = Sim.Octtree.GetColliding(ObjectBounds);
 			foreach(IOctreeObject obj in objs) {
 				if(obj!=this) {
@@ -98,18 +90,14 @@ public class SimObjectInstance : IOctreeObject {
 		}
 	}
 
-	protected virtual void EvaluateStep(float deltatime) {
-		// override to do custom work per sim step.
-	}
+	protected virtual void EvaluateStep(float deltatime) {}
 
-	protected virtual void ObjectCollision(SimObjectInstance obj) {
-		// override to do actual collision work.
-
-	}
+	protected abstract void ObjectCollision(SimObjectInstance obj);
 
 	public void Destroy() {
 		if(DeleteMe==false) {
 			DeleteMe = true;
+			Sim.Octtree.Remove(this);
 			if(OnDestroy!=null) {
 				OnDestroy(this, new EventArgs());
 			}

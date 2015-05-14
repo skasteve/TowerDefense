@@ -38,10 +38,6 @@ public class SimUnitInstance : SimObjectInstance {
 		eventhandler = handler;
 		this.OnDestroy += handler.OnDestroyEventHandler;
 	}
-	
-	public void NonDeterministicUpdate(float deltatime) {
-		// Do any (non-deterministic) processing you want here that can happen multiple times a frame.
-	}
 
 	public override void Step(float deltatime) {
 		if(Health<=0.0f) {
@@ -90,7 +86,7 @@ public class SimUnitInstance : SimObjectInstance {
 			SimUnitInstance closest = null;
 			IOctreeObject[] objs = Sim.Octtree.GetColliding(new Bounds(simposition, Vector3.one * UnitConfig.RadiusOfAffect));
 			foreach(IOctreeObject obj in objs) {
-				SimUnitInstance inst = (SimUnitInstance)obj;
+				SimUnitInstance inst = obj as SimUnitInstance;
 				if(inst!=null && inst != this && inst.UnitConfig.Team != this.UnitConfig.Team) {
 					float disttoobject = Vector3.Distance(this.simposition, inst.simposition);
 					if(disttoobject<=UnitConfig.RadiusOfAffect) {
@@ -140,4 +136,16 @@ public class SimUnitInstance : SimObjectInstance {
 			Debug.LogException(e);
 		}
 	}
+
+	#region implemented abstract members of SimObjectInstance
+
+
+	protected override void ObjectCollision (SimObjectInstance obj)
+	{
+		throw new NotImplementedException ();
+	}
+
+
+	#endregion
+
 }

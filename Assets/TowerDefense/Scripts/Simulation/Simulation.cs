@@ -6,9 +6,9 @@ public class Simulation {
 
 	private const float LOCKSTEP = 0.033f;
 
-	private List<SimUnitInstance> FriendlySimUnits = new List<SimUnitInstance>();
-	private List<SimUnitInstance> EnemySimUnits = new List<SimUnitInstance>();
-
+	private List<SimObjectInstance> FriendlySimUnits = new List<SimObjectInstance>();
+	private List<SimObjectInstance> EnemySimUnits = new List<SimObjectInstance>();
+	private List<SimObjectInstance> Projectiles = new List<SimObjectInstance>();
 
 	private float TimeAccumulator = 0.0f;
 
@@ -43,7 +43,13 @@ public class Simulation {
 		randGen = new MersenneTwister(seed);
 		Octtree = new BoundsOctree<IOctreeObject>(1000.0f,Vector3.zero,10.0f,1);
 	}
-	
+
+	public SimProjectileInstance AddProjectile(SimProjectileConfig config, Vector3 startingposition) {
+		SimProjectileInstance inst = new SimProjectileInstance(this, config, startingposition);
+		Projectiles.Add (inst);
+		return inst;
+	}
+
 	public SimUnitInstance AddUnit(SimUnitConfig unittype, Vector3 startingposition, ISimUnitEventHandler EventHandler) {
 		SimUnitInstance inst = new SimUnitInstance(this, unittype, startingposition, EventHandler);
 		if(unittype.Team==SimUnitConfig.ETeam.Friendly) {
@@ -51,7 +57,6 @@ public class Simulation {
 		} else {
 			EnemySimUnits.Add (inst);
 		}
-		Octtree.Add(inst,inst.ObjectBounds);
 		return inst;
 	}
 
@@ -61,39 +66,26 @@ public class Simulation {
 
 	public void Simulate(float deltatime) {
 
-		foreach(SimUnitInstance inst in EnemySimUnits) {
-			inst.NonDeterministicUpdate(deltatime);
-		}
-		
-		foreach(SimUnitInstance inst in FriendlySimUnits) {
-			inst.NonDeterministicUpdate(deltatime);
-		}
-		
 		TimeAccumulator += deltatime;
 
 		while(TimeAccumulator > 0.0f) {
 			SimTime += LOCKSTEP;
 			TimeAccumulator -= LOCKSTEP;
 
-			for(int i=EnemySimUnits.Count-1;i>=0;i--) {
-				SimUnitInstance inst = EnemySimUnits[i];
-				inst.Step(LOCKSTEP);
-				if(inst.DeleteMe) {
-					EnemySimUnits.Remove(inst);
-					Octtree.Remove(inst);
-				}
-			}
-
-			for(int i=FriendlySimUnits.Count-1;i>=0;i--) {
-				SimUnitInstance inst = FriendlySimUnits[i];
-				inst.Step(LOCKSTEP);
-				if(inst.DeleteMe) {
-					FriendlySimUnits.RemoveAt(i);
-					Octtree.Remove (inst);
-                }
-            }
+			Step (EnemySimUnits);
+			Step (FriendlySimUnits);
+			Step (Projectiles);
 		}
+	}
 
+	private void Step(IList<SimObjectInstance> objs) {
+		for(int i=objs.Count-1;i>=0;i--) {
+			SimObjectInstance inst = objs[i];
+			inst.Step(LOCKSTEP);
+			if(inst.DeleteMe) {
+				objs.RemoveAt(i);
+			}
+		}
 	}
 
 }

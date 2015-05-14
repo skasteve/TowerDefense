@@ -30,7 +30,7 @@ public class SimProjectileInstance : SimObjectInstance {
 	}
 
 	protected override void ObjectCollision(SimObjectInstance obj) {
-		SimUnitInstance inst = (SimUnitInstance)obj;
+		SimUnitInstance inst = obj as SimUnitInstance;
 		if(inst!=null && (inst.UnitConfig.Team==ProjectileConfig.CollidesWithTeam || ProjectileConfig.CollidesWithTeam == SimUnitConfig.ETeam.Both)) {
 			inst.DoDamage(ProjectileConfig.Damage,0.0f);
 			if(OnCollision!=null) {
