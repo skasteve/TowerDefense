@@ -21,7 +21,7 @@ public class SimMovement : ScriptableObject {
 			WobbleRandom = WobbleRandom * Mathf.PI * 2.0f;
 		}
 
-		public static InstanceData GetData(SimMovement simmove, SimUnitInstance instance) {
+		public static InstanceData GetData(SimMovement simmove, SimObjectInstance instance) {
 			if(instance.MovementData==null) {
 				instance.MovementData = new InstanceData(instance.Sim, simmove);
 			}
@@ -29,10 +29,10 @@ public class SimMovement : ScriptableObject {
 		}
 	}
 
-	public Vector3 Integrate(SimUnitInstance instance, float deltatime) {
+	public Vector3 Integrate(SimObjectInstance instance, float deltatime) {
 		InstanceData data = InstanceData.GetData(this, instance);
 
-		Vector3 delta = instance.Sim.Goal.normal * (deltatime * data.Speed * instance.Unit.Speed) * -1.0f;
+		Vector3 delta = instance.Sim.Goal.normal * (deltatime * data.Speed) * -1.0f;
 
 		if(WobbleFrequency != Vector3.zero && WobbleAmplitute != Vector3.zero) {
 			data.WobbleOffset.x = Mathf.Sin(data.WobbleRandom.x * (WobbleFrequency.x * instance.Sim.SimTime)) * WobbleAmplitute.x;

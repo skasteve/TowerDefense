@@ -12,7 +12,7 @@ public static class ScriptableObjectUtility
 	
 	[MenuItem("TowerDefense/Simulation/Create Projectile Type")]
 	public static void CreateProjectileType() {
-		CreateAsset<SimProjectile>();
+		CreateAsset<SimProjectileConfig>();
 	}
 	
 	[MenuItem("TowerDefense/Simulation/Create Unit Type")]

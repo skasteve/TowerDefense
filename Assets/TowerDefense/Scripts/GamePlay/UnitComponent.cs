@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
@@ -99,7 +100,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		gameObject.BroadcastMessage("SimOnReachedGoal",SendMessageOptions.DontRequireReceiver);
 	}
 
-	public void OnSimDestroy(SimUnitInstance sender) 
+	public void OnDestroyEventHandler(object sender, EventArgs e)
 	{
 		Destroy(gameObject);
 	}

@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.IO;
 
-public class SimUnit : ScriptableObject
+public class SimUnit : SimObject
 {
 	public enum ETeam {
 		Friendly,
@@ -15,13 +15,10 @@ public class SimUnit : ScriptableObject
 	public int MinWave = 1;
 	public float spawnChance = .2f;
 
-	public SimMovement Movement;
-	public SimProjectile Projectile;
+	public SimProjectileConfig Projectile;
 
-	public float Speed = 1.0f;
 	public float Health = 100.0f;
 	public float FireRate = 1.0f;
-	public float RadiusOfCollision = 1.0f;
 	public float RadiusOfPlacement = 10.0f;
 	public float RadiusOfAffect = 10.0f;
 

@@ -51,7 +51,7 @@ public class Simulation {
 		} else {
 			EnemySimUnits.Add (inst);
 		}
-		Octtree.Add(inst,inst.ObjectBounds());
+		Octtree.Add(inst,inst.ObjectBounds);
 		return inst;
 	}
 

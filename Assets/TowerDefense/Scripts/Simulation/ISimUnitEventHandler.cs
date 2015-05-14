@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public interface ISimUnitEventHandler : ISimObjectEventHandler {
 
@@ -7,6 +8,4 @@ public interface ISimUnitEventHandler : ISimObjectEventHandler {
 	void OnSimExplode(SimUnitInstance sender);
 	void OnSimDropBonus(SimUnitInstance sender, SimDrop drop);
 	void OnSimReachedGoal(SimUnitInstance sender);
-
-	void OnDestroyEventHandler(object sender, EventArgs e);
 }

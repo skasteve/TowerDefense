@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class SimUnitInstance : SimObject {
+public class SimUnitInstance : SimObjectInstance {
 	
 	private class DamageDef {
 		public float Amount;
@@ -32,18 +32,11 @@ public class SimUnitInstance : SimObject {
 	private List<DamageDef> DamageList = new List<DamageDef>();
 
 
-	public SimUnitInstance(Simulation sim, SimUnit unit, Vector3 startpos, ISimUnitEventHandler handler) {
-		Sim = sim;
+	public SimUnitInstance(Simulation sim, SimUnit unit, Vector3 startpos, ISimUnitEventHandler handler) : base(sim, unit, startpos) {
 		Health = unit.Health;
-		oldposition = startpos;
-		position = startpos;
 		Unit = unit;
 		eventhandler = handler;
 		this.OnDestroy += handler.OnDestroyEventHandler;
-	}
-
-	public Bounds ObjectBounds() {
-		return new Bounds(position, Vector3.one * Unit.RadiusOfCollision);
 	}
 	
 	public void NonDeterministicUpdate(float deltatime) {
@@ -54,10 +47,10 @@ public class SimUnitInstance : SimObject {
 		if(Health<=0.0f) {
 			ConditionalDropBonus();
 			OnExplode();
-			OnDestroy();
-		} else if(Sim.Goal.GetSide(position)==false) {
+			Destroy();
+		} else if(Sim.Goal.GetSide(simposition)==false) {
 			OnReachedGoal();
-			OnDestroy();
+			Destroy();
 		} else {
 			base.Step(deltatime);
 			EvaluateDamage(deltatime);
@@ -95,13 +88,13 @@ public class SimUnitInstance : SimObject {
 			float closestdist = 0.0f;
 			float closestdisttogoal = 0.0f;
 			SimUnitInstance closest = null;
-			IOctreeObject[] objs = Sim.Octtree.GetColliding(new Bounds(position, Vector3.one * Unit.RadiusOfAffect));
+			IOctreeObject[] objs = Sim.Octtree.GetColliding(new Bounds(simposition, Vector3.one * Unit.RadiusOfAffect));
 			foreach(IOctreeObject obj in objs) {
 				SimUnitInstance inst = (SimUnitInstance)obj;
 				if(inst!=null && inst != this && inst.Unit.Team != this.Unit.Team) {
-					float disttoobject = Vector3.Distance(this.position, inst.position);
+					float disttoobject = Vector3.Distance(this.simposition, inst.simposition);
 					if(disttoobject<=Unit.RadiusOfAffect) {
-						float dist = Sim.Goal.GetDistanceToPoint(inst.position);
+						float dist = Sim.Goal.GetDistanceToPoint(inst.simposition);
 						if(closest==null || dist < closestdisttogoal) {
 							closest = inst;
 							closestdisttogoal = dist;
@@ -114,16 +107,9 @@ public class SimUnitInstance : SimObject {
 				//Attack closest to goal
 				float impacttime = closestdist / Unit.Projectile.Speed;
 				closest.DoDamage(Unit.Projectile.DamageAmount, impacttime);
-				OnFireProjectile(closest.position, impacttime, closest);
+				OnFireProjectile(closest.simposition, impacttime, closest);
 				nextFireTime = Sim.SimTime + 1.0f/Unit.FireRate;
 			}
-		}
-	}
-
-	private void EvaluateMovement(float deltatime) {
-		// Units lock step so only do movement updates here, and any deterministic logic
-		if(Unit.Movement!=null) {
-			Position = position + Unit.Movement.Integrate(this, deltatime);
 		}
 	}
 
