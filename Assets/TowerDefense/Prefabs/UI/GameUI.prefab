@@ -1454,6 +1454,7 @@ MonoBehaviour:
   scoreReel: {fileID: 11439660}
   currencyReel: {fileID: 11480232}
   countdownText: {fileID: 11441400}
+  currentWave: {fileID: 11434988}
   unitButtons:
   - {fileID: 11458336}
   - {fileID: 11431332}
@@ -1640,7 +1641,7 @@ MonoBehaviour:
         m_MethodName: SelectUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: bc8aba12a8e0a4bccb5669219146c4c9,
+          m_ObjectArgument: {fileID: 11400000, guid: 4c5d0732a76064530a89a200ff8876cf,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: SimUnit, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
@@ -1735,7 +1736,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WAVE 1/5
+  m_Text: Wave
 --- !u!114 &11437548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1883,7 +1884,7 @@ MonoBehaviour:
         m_MethodName: SelectUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: bc8aba12a8e0a4bccb5669219146c4c9,
+          m_ObjectArgument: {fileID: 11400000, guid: 7feb6690cd26043bb800ece85a0a9754,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: SimUnit, Assembly-CSharp, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
@@ -3084,7 +3085,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: .5}
   m_AnchorMax: {x: 1, y: .5}
-  m_AnchoredPosition: {x: 85.8000031, y: -2.0999999}
+  m_AnchoredPosition: {x: 95.6999969, y: -2.0999999}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22415670

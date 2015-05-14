@@ -96,4 +96,9 @@ public class WaveSpawner : MonoBehaviour {
 			};
 		}
 	}
+
+	public int GetWaveNum()
+	{
+		return _currentWave;
+	}
 }
