@@ -19,7 +19,7 @@ MonoBehaviour:
   Projectile: {fileID: 11400000, guid: 6776bf7edab184475bb430f9057d4910, type: 2}
   Speed: 1
   Health: 100
-  FireRate: 4
+  FireRate: 12
   RadiusOfCollision: 1
   RadiusOfPlacement: 5
   RadiusOfAffect: 20
