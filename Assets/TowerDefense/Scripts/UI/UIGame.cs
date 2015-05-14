@@ -55,7 +55,6 @@ public class UIGame : MonoBehaviour {
 		mainGame.incrementCurrency(-units[unitNum].Cost);
 
 		disableUnitButtons();
-		//Debug.Log ("Unit placed: " + units[unitNum].name.ToString() + " $" + units[unitNum].Cost.ToString());
 	}
 
 	public void cancelUnit(int unitNum)

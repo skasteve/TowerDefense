@@ -15,6 +15,8 @@ public class MainGame : MonoBehaviour {
 
 	public void StartGame()
 	{
+		AudioEngine.instance.PlayStart();
+
 		gameUI.setScore(_score);
 		gameUI.setCurrency(_currencyBalance);
 
@@ -52,6 +54,7 @@ public class MainGame : MonoBehaviour {
 
 	private void StartWave()
 	{
+		AudioEngine.instance.PlayIncomingWave();
 		waveSpawner.NextWave();
 		gameUI.setWave(waveSpawner.GetWaveNum());
 	}

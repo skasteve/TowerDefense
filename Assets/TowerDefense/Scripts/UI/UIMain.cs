@@ -14,6 +14,7 @@ public class UIMain : MonoBehaviour {
 	{
 		_currentScreen = startScreen;
 		loadStartScreen();
+		AudioEngine.instance.PlayAmbientAudio();
 	}
 
 	public void unloadCurrentScreen()

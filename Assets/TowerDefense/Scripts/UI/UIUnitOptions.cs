@@ -34,5 +34,12 @@ public class UIUnitOptions : MonoBehaviour {
 		sellButton.SetActive(show);
 		openUnitOptions.SetActive(!show);
 		cancelUnitOptions.SetActive(show);
+
+		playButtonSound();
+	}
+
+	public void playButtonSound()
+	{
+		AudioEngine.instance.PlayButtonSound();
 	}
 }
