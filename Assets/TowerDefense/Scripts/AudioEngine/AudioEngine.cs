@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -91,15 +91,15 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 		CreateSource(EngineConfig.ACCPlayIncomingWave.GetRandom(), false);
 	}
 
-	public void PlayProjectileFire(AudioProjectileConfig proj) {
+	public void PlayWeaponFire(AudioWeaponConfig proj) {
 		CreateSource (proj.OnFire.GetRandom(), false);
 	}
 
-	public AudioSource PlayProjectileFireLoop(AudioProjectileConfig proj) {
+	public AudioSource PlayWeaponFireLoop(AudioWeaponConfig proj) {
 		return CreateSource (proj.OnFireLoop.GetRandom(), true);
 	}
 
-	public void PlayProjectileImpact(AudioProjectileConfig proj) {
+	public void PlayWeaponImpact(AudioWeaponConfig proj) {
 		CreateSource (proj.OnImpact.GetRandom(), false);
 	}
 
@@ -234,7 +234,7 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 			GUILayout.EndHorizontal();
 		}
 
-		foreach(AudioProjectileConfig proj in EngineConfig.WeaponConfigs) {
+		foreach(AudioWeaponConfig proj in EngineConfig.WeaponConfigs) {
 			GUILayout.Label(" ");
 			GUILayout.Label("Weapon " + proj.ToString());
 			GUILayout.BeginHorizontal();
@@ -244,14 +244,14 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 				
 				GUILayout.BeginHorizontal();
 				if(GUILayout.Button ("Play Fire")) {
-					PlayProjectileFire(proj);
+					PlayWeaponFire(proj);
 				}
 				if(GUILayout.Button ("Play Fire Loop")) {
 					StopSourceSafe(tmpsource);
-					tmpsource = PlayProjectileFireLoop(proj);
+					tmpsource = PlayWeaponFireLoop(proj);
 				}
-				if(GUILayout.Button ("Play Projectile Impact")) {
-					PlayProjectileImpact(proj);
+				if(GUILayout.Button ("Play Weapon Impact")) {
+					PlayWeaponImpact(proj);
 				}
 				if(GUILayout.Button ("Stop Fire Loop")) {
 					StopSourceSafe(tmpsource);

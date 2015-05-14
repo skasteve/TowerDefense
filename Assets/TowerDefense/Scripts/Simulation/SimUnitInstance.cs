@@ -84,7 +84,7 @@ public class SimUnitInstance : SimObjectInstance {
 	}
 
 	private void EvaluateAttack(float deltatime) {
-		if(Unit.Projectile!=null && Sim.SimTime>=nextFireTime && Unit.FireRate>0.0f) {
+		if(Unit.WeaponConfig!=null && Sim.SimTime>=nextFireTime && Unit.FireRate>0.0f) {
 			float closestdist = 0.0f;
 			float closestdisttogoal = 0.0f;
 			SimUnitInstance closest = null;
@@ -105,9 +105,9 @@ public class SimUnitInstance : SimObjectInstance {
 			}	      
 			if(closest!=null) {
 				//Attack closest to goal
-				float impacttime = closestdist / Unit.Projectile.Speed;
-				closest.DoDamage(Unit.Projectile.DamageAmount, impacttime);
-				OnFireProjectile(closest.simposition, impacttime, closest);
+				float impacttime = closestdist / Unit.WeaponConfig.Speed;
+				closest.DoDamage(Unit.WeaponConfig.DamageAmount, impacttime);
+				OnFireWeapon(closest.simposition, impacttime, closest);
 				nextFireTime = Sim.SimTime + 1.0f/Unit.FireRate;
 			}
 		}
@@ -125,9 +125,9 @@ public class SimUnitInstance : SimObjectInstance {
 		}
 	}
 
-	private void OnFireProjectile(Vector3 impactlocation, float impacttime, SimUnitInstance impactunit) {
+	private void OnFireWeapon(Vector3 impactlocation, float impacttime, SimUnitInstance impactunit) {
 		if(eventhandler!=null) {
-			eventhandler.OnSimFireProjectile(this,impactlocation, impacttime, impactunit);
+			eventhandler.OnSimFireWeapon(this,impactlocation, impacttime, impactunit);
 		}
 	}
 

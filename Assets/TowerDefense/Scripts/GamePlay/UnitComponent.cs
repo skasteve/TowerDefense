@@ -72,7 +72,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		}
 	}
 
-	public void OnSimFireProjectile (SimUnitInstance sender, Vector3 impactlocation, float impacttime, SimUnitInstance impactunit)
+	public void OnSimFireWeapon (SimUnitInstance sender, Vector3 impactlocation, float impacttime, SimUnitInstance impactunit)
 	{
 		Transform target = null;
 

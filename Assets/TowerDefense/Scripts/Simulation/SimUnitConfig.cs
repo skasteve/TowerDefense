@@ -15,7 +15,7 @@ public class SimUnitConfig : SimObjectConfig
 	public int MinWave = 1;
 	public float spawnChance = .2f;
 
-	public SimProjectileConfig Projectile;
+	public SimWeaponConfig WeaponConfig;
 
 	public float Health = 100.0f;
 	public float FireRate = 1.0f;
