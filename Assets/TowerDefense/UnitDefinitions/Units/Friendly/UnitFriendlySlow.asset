@@ -19,10 +19,10 @@ MonoBehaviour:
   Projectile: {fileID: 11400000, guid: bc8139b8c449243c695fbf3225b3398c, type: 2}
   Speed: 1
   Health: 100
-  FireRate: .5
+  FireRate: .300000012
   RadiusOfCollision: 1
   RadiusOfPlacement: 10
-  RadiusOfAffect: 20
+  RadiusOfAffect: 15
   DropBonusPct: 1
   DropBonus: {fileID: 0}
   AudioConfig: {fileID: 0}

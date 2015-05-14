@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Name: ProjectileFast
   m_EditorClassIdentifier: 
   Speed: 40
-  DamageAmount: 2
+  DamageAmount: 5
   AudioConfig: {fileID: 0}

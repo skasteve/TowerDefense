@@ -11,7 +11,7 @@ public class MainGame : MonoBehaviour {
 	private int _currencyBalance = 20;
 	//private int _score = 0;
 
-	private const int COUNTDOWN_TIME_SEC = 10;
+	private const int COUNTDOWN_TIME_SEC = 5;
 
 	public void StartGame()
 	{

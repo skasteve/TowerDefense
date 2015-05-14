@@ -18,7 +18,7 @@ MonoBehaviour:
   Movement: {fileID: 11400000, guid: 06311fb1451134c99a75c3dfd8e26a64, type: 2}
   Projectile: {fileID: 0}
   Speed: 1
-  Health: 300
+  Health: 100
   FireRate: 1
   RadiusOfCollision: 1
   RadiusOfPlacement: 10
