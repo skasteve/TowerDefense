@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 using System.Collections;
 using System.IO;
@@ -15,8 +15,8 @@ public static class MenuAudioEngine {
 	}
 
 	[MenuItem("TowerDefense/Audio/Create Audio Weapon", false, 10)]
-	public static void CreateAudioProjectileConfig() {
-		CreateAsset<AudioProjectileConfig>();
+	public static void CreateAudioWeaponConfig() {
+		CreateAsset<AudioWeaponConfig>();
 	}
 
 	[MenuItem("TowerDefense/Audio/Create Audio Collection", false, 10)]

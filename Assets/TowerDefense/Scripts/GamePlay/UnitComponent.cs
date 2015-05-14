@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
 
 public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
-	private SimUnit simunit;
+	private SimUnitConfig simunit;
 	public bool followsim = true;
 
 	public GameObject placementArea;
@@ -17,7 +17,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	private static IDictionary<SimUnitInstance, Transform> _unitMapping = new Dictionary<SimUnitInstance, Transform>();
 
-	public void SetSimUnit(SimUnit inst) {
+	public void SetSimUnit(SimUnitConfig inst) {
 		if (_simunitinst == null && inst != null) {
 			simunit = inst;
 			_simunitinst = SimulationComponent.CurrentSim.AddUnit(simunit,transform.position, this);
@@ -40,7 +40,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		}
 	}
 
-	public void SetAreaVisuals(SimUnit unit)
+	public void SetAreaVisuals(SimUnitConfig unit)
 	{
 		float placementAreaScale = unit.RadiusOfPlacement;
 		float attackAreaScale = unit.RadiusOfAffect;
@@ -72,7 +72,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		}
 	}
 
-	public void OnSimFireProjectile (SimUnitInstance sender, Vector3 impactlocation, float impacttime, SimUnitInstance impactunit)
+	public void OnSimFireWeapon (SimUnitInstance sender, Vector3 impactlocation, float impacttime, SimUnitInstance impactunit)
 	{
 		Transform target = null;
 
@@ -92,7 +92,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		gameObject.BroadcastMessage("SimOnExplode",SendMessageOptions.DontRequireReceiver);
 	}
 
-	public void OnSimDropBonus (SimUnitInstance sender, SimDrop drop)
+	public void OnSimDropBonus (SimUnitInstance sender, SimDropConfig drop)
 	{
 		gameObject.BroadcastMessage("SimOnDropBonus", drop, SendMessageOptions.DontRequireReceiver);
 	}
@@ -102,7 +102,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		gameObject.BroadcastMessage("SimOnReachedGoal",SendMessageOptions.DontRequireReceiver);
 	}
 
-	public void OnSimDestroy(SimUnitInstance sender) 
+	public void OnDestroyEventHandler(object sender, EventArgs e)
 	{
 		if (onSimDestroy != null)
 			onSimDestroy();

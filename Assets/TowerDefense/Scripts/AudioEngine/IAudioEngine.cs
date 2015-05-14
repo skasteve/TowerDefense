@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 interface IAudioEngine {
 	void PlayMenuLoop();
@@ -20,9 +20,9 @@ interface IAudioEngine {
 	void PlayUnitReachedGoal(AudioUnitConfig auc);
 	void PlayExplode(AudioUnitConfig auc);
 
-	void PlayProjectileFire(AudioProjectileConfig proj);
-	AudioSource PlayProjectileFireLoop(AudioProjectileConfig proj);
-	void PlayProjectileImpact(AudioProjectileConfig proj);
+	void PlayWeaponFire(AudioWeaponConfig proj);
+	AudioSource PlayWeaponFireLoop(AudioWeaponConfig proj);
+	void PlayWeaponImpact(AudioWeaponConfig proj);
 
 	void PlayButtonSound();
 

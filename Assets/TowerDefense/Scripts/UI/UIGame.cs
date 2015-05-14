@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -13,7 +13,7 @@ public class UIGame : MonoBehaviour {
 	public Button[] unitButtons;
 	public Button[] cancelButtons;
 
-	public SimUnit[] units;
+	public SimUnitConfig[] units;
 
 	void Awake()
 	{

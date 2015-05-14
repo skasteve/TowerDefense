@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,6 +8,7 @@ public class Simulation {
 
 	private List<SimUnitInstance> FriendlySimUnits = new List<SimUnitInstance>();
 	private List<SimUnitInstance> EnemySimUnits = new List<SimUnitInstance>();
+
 
 	private float TimeAccumulator = 0.0f;
 
@@ -43,14 +44,14 @@ public class Simulation {
 		Octtree = new BoundsOctree<IOctreeObject>(1000.0f,Vector3.zero,10.0f,1);
 	}
 	
-	public SimUnitInstance AddUnit(SimUnit unittype, Vector3 startingposition, ISimUnitEventHandler EventHandler) {
+	public SimUnitInstance AddUnit(SimUnitConfig unittype, Vector3 startingposition, ISimUnitEventHandler EventHandler) {
 		SimUnitInstance inst = new SimUnitInstance(this, unittype, startingposition, EventHandler);
-		if(unittype.Team==SimUnit.ETeam.Friendly) {
+		if(unittype.Team==SimUnitConfig.ETeam.Friendly) {
 			FriendlySimUnits.Add(inst);
 		} else {
 			EnemySimUnits.Add (inst);
 		}
-		Octtree.Add(inst,inst.ObjectBounds());
+		Octtree.Add(inst,inst.ObjectBounds);
 		return inst;
 	}
 

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 using System.IO;
 
@@ -10,14 +10,14 @@ public static class ScriptableObjectUtility
 		CreateAsset<SimMovement>();
 	}
 	
-	[MenuItem("TowerDefense/Simulation/Create Projectile Type")]
-	public static void CreateProjectileType() {
-		CreateAsset<SimProjectile>();
+	[MenuItem("TowerDefense/Simulation/Create Weapon Type")]
+	public static void CreateWeaponType() {
+		CreateAsset<SimWeaponConfig>();
 	}
 	
 	[MenuItem("TowerDefense/Simulation/Create Unit Type")]
 	public static void CreateUnitType() {
-		CreateAsset<SimUnit>();
+		CreateAsset<SimUnitConfig>();
 	}
 	
 	/// <summary>

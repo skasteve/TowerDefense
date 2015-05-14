@@ -1,17 +1,17 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 public class WaveSpawner : MonoBehaviour {
 	
 	public Collider spawnArea;
-	public SimUnit[] unitPool;
+	public SimUnitConfig[] unitPool;
 
 	public System.Action onWaveComplete;
 
 	private Bounds _spawnArea;
 	private int _currentWave = -1;
-	private List<SimUnit> _waveUnits = new List<SimUnit>();
+	private List<SimUnitConfig> _waveUnits = new List<SimUnitConfig>();
 	private List<GameObject> _spawnedUnits = new List<GameObject>();
 
 	private const int DIFFICULTY_MULTIPLIER = 20;
@@ -34,11 +34,11 @@ public class WaveSpawner : MonoBehaviour {
 	{
 		int poolValue = _currentWave * DIFFICULTY_MULTIPLIER + DIFFICULTY_MULTIPLIER;
 
-		List<SimUnit> unitPool = PossibleUnits();
+		List<SimUnitConfig> unitPool = PossibleUnits();
 
 		while (poolValue > 0)
 		{
-			SimUnit newUnit = unitPool[Random.Range(0, unitPool.Count)];
+			SimUnitConfig newUnit = unitPool[Random.Range(0, unitPool.Count)];
 
 			if (newUnit.PowerValue <= poolValue)
 			{
@@ -48,11 +48,11 @@ public class WaveSpawner : MonoBehaviour {
 		}
 	}
 
-	private List<SimUnit> PossibleUnits()
+	private List<SimUnitConfig> PossibleUnits()
 	{
-		List<SimUnit> availableUnits = new List<SimUnit>();
+		List<SimUnitConfig> availableUnits = new List<SimUnitConfig>();
 		
-		foreach (SimUnit unit in unitPool)
+		foreach (SimUnitConfig unit in unitPool)
 		{
 			if (unit.MinWave <= _currentWave)
 			{
@@ -72,7 +72,7 @@ public class WaveSpawner : MonoBehaviour {
 	{
 		_spawnedUnits.Clear();
 
-		foreach (SimUnit unit in _waveUnits)
+		foreach (SimUnitConfig unit in _waveUnits)
 		{
 			Vector3 spawnPos = Vector3.zero;
 			spawnPos.x = Random.Range(_spawnArea.min.x, _spawnArea.max.x);

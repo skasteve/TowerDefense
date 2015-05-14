@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,5 +13,5 @@ public class AudioEngineConfig : ScriptableObject {
 	public AudioClipsCollection ACCPickupCoin;
 
 	public List<AudioUnitConfig> UnitConfigs;
-	public List<AudioProjectileConfig> WeaponConfigs;
+	public List<AudioWeaponConfig> WeaponConfigs;
 }
