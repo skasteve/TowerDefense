@@ -32,6 +32,10 @@ public class SimMovement : ScriptableObject {
 	public Vector3 Integrate(SimObjectInstance instance, float deltatime) {
 		InstanceData data = InstanceData.GetData(this, instance);
 
+		if(data.Speed==0.0f) {
+			return Vector3.zero;
+		}
+
 		Vector3 delta = instance.Sim.Goal.normal * (deltatime * data.Speed) * -1.0f;
 
 		if(WobbleFrequency != Vector3.zero && WobbleAmplitute != Vector3.zero) {
