@@ -6,18 +6,18 @@ public class UnitButton : MonoBehaviour {
 
 	public GameObject unitOptionsObject;
 
-	private Canvas _canvas;
+	private GameObject _optionsHolder;
 	private GameObject _unitOptions;
 
 	void Awake()
 	{
-		_canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+		_optionsHolder = GameObject.Find("UnitOptions");
 	}
 
 	void OnEnable()
 	{
 		_unitOptions = (GameObject)Instantiate(unitOptionsObject);
-		_unitOptions.transform.SetParent(_canvas.transform);
+		_unitOptions.transform.SetParent(_optionsHolder.transform);
 	}
 
 	void Update()

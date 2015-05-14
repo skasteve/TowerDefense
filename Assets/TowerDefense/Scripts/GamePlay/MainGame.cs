@@ -29,7 +29,9 @@ public class MainGame : MonoBehaviour {
 	private IEnumerator StartCountDown()
 	{
 		int startTime = COUNTDOWN_TIME_SEC;
-	
+
+		gameUI.countdownText.gameObject.SetActive(true);
+
 		while (startTime > -1)
 		{
 			gameUI.countdownText.text = startTime.ToString();
@@ -43,6 +45,7 @@ public class MainGame : MonoBehaviour {
 		}
 
 		gameUI.countdownText.text = "";
+		gameUI.countdownText.gameObject.SetActive(false);
 
 		StartWave();
 	}

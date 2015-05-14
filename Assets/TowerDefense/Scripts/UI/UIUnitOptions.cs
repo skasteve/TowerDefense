@@ -6,6 +6,7 @@ public class UIUnitOptions : MonoBehaviour {
 
 	public Text upgradeCost;
 	public Text sellBackValue;
+	public Text upgradeLevel;
 	
 	public GameObject upgradeButton;
 	public GameObject sellButton;
@@ -20,8 +21,9 @@ public class UIUnitOptions : MonoBehaviour {
 		openUnitOptions.SetActive(true);
 	}
 
-	public void SetUnitOptions(int upgradeCost, int sellBackValue)
+	public void SetUnitOptions(int upgradeLevel, int upgradeCost, int sellBackValue)
 	{
+		this.upgradeLevel.text = upgradeLevel.ToString();
 		this.upgradeCost.text = upgradeCost.ToString();
 		this.sellBackValue.text = sellBackValue.ToString();
 	}
