@@ -9,6 +9,7 @@ public class UIGame : MonoBehaviour {
 	public UIReel scoreReel;
 	public UIReel currencyReel;
 	public Text countdownText;
+	public Text currentWave;
 
 	public Button[] unitButtons;
 	public Button[] cancelButtons;
@@ -30,6 +31,11 @@ public class UIGame : MonoBehaviour {
 		currencyReel.setReelValue(currency);
 
 		refreshUnitButtons();
+	}
+
+	public void setWave(int waveNum)
+	{
+		currentWave.text = "Wave  " + (waveNum + 1);
 	}
 
 	public void refreshUnitButtons()
