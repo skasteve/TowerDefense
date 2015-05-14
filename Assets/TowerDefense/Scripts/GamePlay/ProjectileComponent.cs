@@ -9,6 +9,8 @@ public class ProjectileComponent : MonoBehaviour {
 	private Vector3 startPos;
 	private Quaternion startRotation;
 	private Quaternion lookRotation;
+
+	public AudioWeaponConfig audioConfig;
 	
 	void Update()
 	{
@@ -29,11 +31,14 @@ public class ProjectileComponent : MonoBehaviour {
 		startPos = gameObject.transform.position;
 		startRotation = Quaternion.LookRotation(target.position);
 		StartCoroutine(TimeOut());
+
+		AudioEngine.instance.PlayWeaponFire(audioConfig);
 	}
 
 	private IEnumerator TimeOut()
 	{
 		yield return new WaitForSeconds(impactTime);
+		AudioEngine.instance.PlayWeaponImpact(audioConfig);
 		GameObject.Destroy(this.gameObject);
 	}
 }

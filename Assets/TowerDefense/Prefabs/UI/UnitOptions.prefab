@@ -104,6 +104,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &173722
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22437620}
+  - 222: {fileID: 22220038}
+  - 114: {fileID: 11433392}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &186580
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,27 +243,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: SelectUnit
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 4c5d0732a76064530a89a200ff8876cf,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: SimUnit, Assembly-CSharp, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: selectUnit
-        m_Mode: 3
+      - m_Target: {fileID: 11429858}
+        m_MethodName: playButtonSound
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -266,10 +270,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeCost: {fileID: 11409090}
   sellBackValue: {fileID: 11448440}
+  upgradeLevel: {fileID: 11479274}
   upgradeButton: {fileID: 186580}
   sellButton: {fileID: 132192}
   cancelUnitOptions: {fileID: 114052}
   openUnitOptions: {fileID: 194642}
+--- !u!114 &11433392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .141176477, g: .160784319, b: .141176477, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 336ae1bea923e42a69adf73ee46d2542, type: 3}
+    m_FontSize: 37
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: SELL
 --- !u!114 &11435298
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -308,7 +339,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11473528}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11429858}
+        m_MethodName: playButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11448440
@@ -468,7 +511,7 @@ MonoBehaviour:
   m_Color: {r: .141176477, g: .160784319, b: .141176477, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 336ae1bea923e42a69adf73ee46d2542, type: 3}
-    m_FontSize: 37
+    m_FontSize: 33
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -478,7 +521,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: SELL
+  m_Text: Lvl 2
 --- !u!114 &11491660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,6 +587,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 132192}
+--- !u!222 &22220038
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173722}
 --- !u!222 &22223322
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -612,7 +661,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22428302}
-  - {fileID: 22495662}
+  - {fileID: 22437620}
   m_Father: {fileID: 22407390}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
@@ -654,6 +703,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: .5, y: .5}
+--- !u!224 &22437620
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173722}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22423498}
+  m_RootOrder: 1
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -8.60000038, y: 1}
+  m_SizeDelta: {x: 160, y: 44.4000015}
+  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22472030
 RectTransform:
   m_ObjectHideFlags: 1
@@ -682,6 +748,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22472030}
+  - {fileID: 22495662}
   m_Father: {fileID: 22407390}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
@@ -699,11 +766,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 22423498}
+  m_Father: {fileID: 22487364}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -8.60000038, y: 1}
+  m_AnchoredPosition: {x: 9.30000019, y: 1}
   m_SizeDelta: {x: 160, y: 44.4000015}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22496472

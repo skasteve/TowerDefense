@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55351ecadb76a4daa87b49e29d08c3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioConfig: {fileID: 11400000, guid: 9de9a43711116434783ce75a1a5edf85, type: 2}
 --- !u!136 &13689224
 CapsuleCollider:
   m_ObjectHideFlags: 1

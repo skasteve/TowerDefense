@@ -70,6 +70,8 @@ public class UnitPlacement : MonoBehaviour
 		uc.EnableUnitButton();
 		gameUI.unitPlaced();
 
+		AudioEngine.instance.PlayUnitPlaced(AudioEngine.instance.EngineConfig.UnitConfigs[0]);
+
 		CancelPlacementPreview();
 	}
 

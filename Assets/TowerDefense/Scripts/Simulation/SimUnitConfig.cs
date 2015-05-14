@@ -6,7 +6,9 @@ public class SimUnitConfig : SimObjectConfig
 {
 	public enum ETeam {
 		Friendly,
-		Enemy
+		Enemy,
+		Both,
+		None
 	};
 
 	public ETeam Team = ETeam.Friendly;

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class AudioEngine : MonoBehaviour, IAudioEngine {
 
+	public static AudioEngine instance;
+
 	public AudioEngineConfig EngineConfig;
 
 	[Range(0.0f, 1.0f)]
@@ -20,8 +22,9 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 
 	private Vector2 scrollPosition = Vector2.zero;
 
-	// Use this for initialization
-	void Start () {
+	void Awake()
+	{
+		instance = this;
 		sourcepool = new List<AudioSource>();
 		AmbientSource = gameObject.AddComponent<AudioSource>();
 		AmbientSource.volume = AmbientVolume;
