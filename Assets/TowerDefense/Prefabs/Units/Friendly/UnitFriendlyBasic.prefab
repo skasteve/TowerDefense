@@ -1,21 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &110768
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 461880}
-  - 114: {fileID: 11429520}
-  m_Layer: 0
-  m_Name: Gun2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &130624
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 179154}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 5, y: .100000001, z: 5}
   m_Children: []
   m_Father: {fileID: 463556}
   m_RootOrder: 1
@@ -159,18 +143,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 497078}
   m_RootOrder: 1
---- !u!4 &461880
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110768}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.583999991, y: .284999996, z: .472000003}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 463556}
-  m_RootOrder: 4
 --- !u!4 &463556
 Transform:
   m_ObjectHideFlags: 1
@@ -185,7 +157,6 @@ Transform:
   - {fileID: 417822}
   - {fileID: 474908}
   - {fileID: 493480}
-  - {fileID: 461880}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &466684
@@ -208,7 +179,7 @@ Transform:
   m_GameObject: {fileID: 185270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 10, y: .100000001, z: 10}
   m_Children: []
   m_Father: {fileID: 463556}
   m_RootOrder: 2
@@ -219,7 +190,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .583999991, y: .284999996, z: .472000003}
+  m_LocalPosition: {x: 0, y: .0280000009, z: .926999986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 463556}
@@ -391,19 +362,6 @@ MonoBehaviour:
   followsim: 1
   placementArea: {fileID: 179154}
   attackArea: {fileID: 185270}
---- !u!114 &11429520
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42183c9b1c4714b40aa8d7bf96f26bd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectiles:
-  - {fileID: 11425154, guid: 08010250d8bdd4972b4f22b7ce50b36c, type: 2}
 --- !u!114 &11471560
 MonoBehaviour:
   m_ObjectHideFlags: 1

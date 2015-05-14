@@ -15,14 +15,14 @@ MonoBehaviour:
   PowerValue: 1
   MinWave: 1
   spawnChance: .200000003
-  Movement: {fileID: 0}
+  Movement: {fileID: 11400000, guid: 702a7906baab0434799a7dd35d3bfad1, type: 2}
   Projectile: {fileID: 11400000, guid: f5fb41f48f540480ebed96f2f16f2033, type: 2}
   Speed: 1
   Health: 100
-  FireRate: 1
+  FireRate: 3
   RadiusOfCollision: 1
-  RadiusOfPlacement: 10
-  RadiusOfAffect: 20
+  RadiusOfPlacement: 5
+  RadiusOfAffect: 10
   DropBonusPct: 1
   DropBonus: {fileID: 0}
   AudioConfig: {fileID: 0}

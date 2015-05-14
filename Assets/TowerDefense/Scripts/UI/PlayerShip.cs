@@ -17,7 +17,7 @@ public class PlayerShip : MonoBehaviour
 		if (!Input.GetMouseButton(0) || UnitPlacement.placingUnit)
 			return; // ignore when mouse is not down or currently placing units
 
-		if (Input.mousePosition.y > Screen.height * 0.25f)
+		if (Input.mousePosition.y > Screen.height * 0.25f || Input.mousePosition.y < Screen.height * 0.08f)
 			return; // ignore input above the bottom section of the screen
 
 		// get the screen position that we are going to project

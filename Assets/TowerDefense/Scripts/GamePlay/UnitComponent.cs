@@ -11,6 +11,8 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 	public GameObject placementArea;
 	public GameObject attackArea;
 
+	public Action onSimDestroy;
+
 	private SimUnitInstance _simunitinst;
 
 	private static IDictionary<SimUnitInstance, Transform> _unitMapping = new Dictionary<SimUnitInstance, Transform>();
@@ -40,11 +42,11 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	public void SetAreaVisuals(SimUnitConfig unit)
 	{
-		float placementAreaScale = unit.RadiusOfPlacement / 2;
-		float attackAreaScale = unit.RadiusOfAffect / 2;
+		float placementAreaScale = unit.RadiusOfPlacement;
+		float attackAreaScale = unit.RadiusOfAffect;
 
-		placementArea.transform.localScale = new Vector3(placementAreaScale, placementAreaScale, placementAreaScale);
-		attackArea.transform.localScale = new Vector3(attackAreaScale, attackAreaScale, attackAreaScale);
+		placementArea.transform.localScale = new Vector3(placementAreaScale, .1f, placementAreaScale);
+		attackArea.transform.localScale = new Vector3(attackAreaScale, .1f, attackAreaScale);
 	}
 
 	public void ShowAreas(bool show)
@@ -102,6 +104,9 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	public void OnDestroyEventHandler(object sender, EventArgs e)
 	{
+		if (onSimDestroy != null)
+			onSimDestroy();
+
 		Destroy(gameObject);
 	}
 	#endregion
