@@ -6,8 +6,8 @@ public class UIGame : MonoBehaviour {
 
 	public MainGame mainGame;
 
-	public Text scoreValue;
-	public Text currencyValue;
+	public UIReel scoreReel;
+	public UIReel currencyReel;
 	public Text countdownText;
 
 	public Button[] unitButtons;
@@ -22,12 +22,12 @@ public class UIGame : MonoBehaviour {
 
 	public void setScore(int score)
 	{
-		scoreValue.text = score.ToString();
+		scoreReel.setReelValue(score);
 	}
 
 	public void setCurrency(int currency)
 	{
-		currencyValue.text = currency.ToString();
+		currencyReel.setReelValue(currency);
 
 		refreshUnitButtons();
 	}
@@ -58,13 +58,14 @@ public class UIGame : MonoBehaviour {
 		{
 			cancelButtons[i].gameObject.SetActive(false);
 		}
-
+		enableUnitButtons();
 		refreshUnitButtons();
 	}
 
 	public void unitPlaced()
 	{
 		hideCancelButtons();
+		enableUnitButtons();
 		refreshUnitButtons();
 	}
 
@@ -72,7 +73,15 @@ public class UIGame : MonoBehaviour {
 	{
 		for (int i = 0; i < unitButtons.Length; i++)
 		{
-			unitButtons[i].interactable = false;
+			unitButtons[i].gameObject.SetActive(false);
+		}
+	}
+
+	private void enableUnitButtons()
+	{
+		for (int i = 0; i < unitButtons.Length; i++)
+		{
+			unitButtons[i].gameObject.SetActive(true);
 		}
 	}
 
