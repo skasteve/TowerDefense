@@ -130,6 +130,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 463556}
   - 114: {fileID: 11421008}
+  - 114: {fileID: 11488334}
   m_Layer: 0
   m_Name: UnitFriendlyRange
   m_TagString: Untagged
@@ -540,6 +541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followsim: 1
+  unitButton: {fileID: 11488334}
   placementArea: {fileID: 109694}
   attackArea: {fileID: 175518}
 --- !u!114 &11432240
@@ -568,6 +570,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectiles:
   - {fileID: 11425154, guid: d212f369b543c4833b5d232f5dd2e708, type: 2}
+--- !u!114 &11488334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 172992}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4bb6bbc5a8de45749219e83b5e687c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitOptionsObject: {fileID: 170030, guid: 7f3d5fc346bec4f2a9e53a5c35f2edfb, type: 2}
 --- !u!135 &13540846
 SphereCollider:
   m_ObjectHideFlags: 1

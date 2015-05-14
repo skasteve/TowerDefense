@@ -8,6 +8,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 	private SimUnitConfig simunit;
 	public bool followsim = true;
 
+	public UnitButton unitButton;
 	public GameObject placementArea;
 	public GameObject attackArea;
 
@@ -56,6 +57,11 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 	{
 		placementArea.SetActive(show);
 		attackArea.SetActive(show);
+	}
+
+	public void EnableUnitButton()
+	{
+		unitButton.enabled = true;
 	}
 
 	#region ISimUnitEventHandler implementation

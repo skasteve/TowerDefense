@@ -11,20 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c85c464db26c4981a6c9c1156267245, type: 3}
   m_Name: UnityEnemyHard
   m_EditorClassIdentifier: 
+  Movement: {fileID: 11400000, guid: 06311fb1451134c99a75c3dfd8e26a64, type: 2}
+  RadiusOfCollision: 1
   Team: 1
   PowerValue: 9
   MinWave: 4
   spawnChance: .100000001
-  Movement: {fileID: 11400000, guid: 06311fb1451134c99a75c3dfd8e26a64, type: 2}
-  Projectile: {fileID: 0}
-  Speed: 2.5
+  WeaponConfig: {fileID: 0}
   Health: 100
   FireRate: 1
-  RadiusOfCollision: 1
   RadiusOfPlacement: 10
   RadiusOfAffect: 10
   DropBonusPct: 1
   DropBonus: {fileID: 0}
   AudioConfig: {fileID: 0}
-  Cost: 1
+  Cost: 5
   UnitPrefab: {fileID: 172992, guid: 1ade23fc26bc74010a3ca2621ef504df, type: 2}
+  Points: 1000

@@ -51,6 +51,7 @@ public class UnitPlacement : MonoBehaviour
 		UnitComponent uc = placementPreviewObject.GetComponent<UnitComponent>();
 		uc.SetAreaVisuals(_selectedUnitType);
 		uc.ShowAreas(true);
+		uc.transform.parent = this.transform;
 	}
 
 	/// <summary>
@@ -66,7 +67,7 @@ public class UnitPlacement : MonoBehaviour
 		UnitComponent uc = newUnit.GetComponent<UnitComponent>();
 		uc.SetSimUnit(_selectedUnitType);
 		placedUnits.Add(uc);
-
+		uc.EnableUnitButton();
 		gameUI.unitPlaced();
 
 		CancelPlacementPreview();
