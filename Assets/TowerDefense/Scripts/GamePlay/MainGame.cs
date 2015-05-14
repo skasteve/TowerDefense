@@ -6,10 +6,15 @@ public class MainGame : MonoBehaviour {
 	public SimulationComponent simulation;
 	public WaveSpawner waveSpawner;
 	public UIGame gameUI;
+	public GameClock gameClock;
+
+	public float gameTime;
 
 	private int _seed = 0;
 	private int _currencyBalance = 20;
 	private int _score = 0;
+
+	private float _currentTime = 0;
 
 	private const int COUNTDOWN_TIME_SEC = 5;
 
@@ -24,6 +29,20 @@ public class MainGame : MonoBehaviour {
 		waveSpawner.onWaveComplete += OnWaveComplete;
 		
 		UnitComponent.onSimExplode += HandleonSimExplode;
+
+		gameClock.totalTime = gameTime;
+
+		_currentTime = gameTime;
+	}
+
+	void Update()
+	{
+		if (_currentTime <= 0)
+			return;
+
+		_currentTime -= Time.deltaTime;
+
+		gameClock.currentTime = _currentTime;
 	}
 
 	private IEnumerator StartCountDown()
