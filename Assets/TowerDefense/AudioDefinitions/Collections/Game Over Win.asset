@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf175351e20cd5241bd883f9497eb241, type: 3}
   m_Name: Game Over Win
   m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24316564, guid: 9bc86df9960a34ed085ec28b2b3281d4, type: 2}
   AudioClips:
   - {fileID: 8300000, guid: a0ef7b7fdab6fe446855133cea52f5cb, type: 3}

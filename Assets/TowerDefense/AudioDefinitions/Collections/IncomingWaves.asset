@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf175351e20cd5241bd883f9497eb241, type: 3}
   m_Name: IncomingWaves
   m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24312032, guid: 9bc86df9960a34ed085ec28b2b3281d4, type: 2}
   AudioClips:
   - {fileID: 8300000, guid: b4c2b8aa054e31443b15bd81d9e651f9, type: 3}

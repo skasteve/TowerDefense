@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf175351e20cd5241bd883f9497eb241, type: 3}
   m_Name: ButtonPress
   m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24393242, guid: 9bc86df9960a34ed085ec28b2b3281d4, type: 2}
   AudioClips:
   - {fileID: 8300000, guid: c2bb6d3fa37f4f44ba4db5f88e06c257, type: 3}
   - {fileID: 8300000, guid: 6d658a88b3ddc95468d883dcea0519cb, type: 3}

@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf175351e20cd5241bd883f9497eb241, type: 3}
   m_Name: Gun Impact
   m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24371662, guid: 9bc86df9960a34ed085ec28b2b3281d4, type: 2}
   AudioClips:
   - {fileID: 8300000, guid: 40e836bff516847dd834d6f19574c3b9, type: 3}
   - {fileID: 8300000, guid: 7cf6759c741274874b9e95782e6df688, type: 3}

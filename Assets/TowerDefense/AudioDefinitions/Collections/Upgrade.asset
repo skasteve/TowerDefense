@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf175351e20cd5241bd883f9497eb241, type: 3}
   m_Name: Upgrade
   m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24305750, guid: 9bc86df9960a34ed085ec28b2b3281d4, type: 2}
   AudioClips: []

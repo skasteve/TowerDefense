@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf175351e20cd5241bd883f9497eb241, type: 3}
   m_Name: Game Start
   m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24329782, guid: 9bc86df9960a34ed085ec28b2b3281d4, type: 2}
   AudioClips:
   - {fileID: 8300000, guid: b3bd2c8fd35d619438130e55b0eb1c1c, type: 3}

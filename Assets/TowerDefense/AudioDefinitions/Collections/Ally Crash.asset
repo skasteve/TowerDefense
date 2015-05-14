@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf175351e20cd5241bd883f9497eb241, type: 3}
   m_Name: Ally Crash
   m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24361102, guid: 9bc86df9960a34ed085ec28b2b3281d4, type: 2}
   AudioClips:
   - {fileID: 8300000, guid: 6b0511d483719b84799845ab331281f0, type: 3}
   - {fileID: 8300000, guid: 3608dac406cae9d48b6c651dcf825fa7, type: 3}

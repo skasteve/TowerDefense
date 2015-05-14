@@ -11,6 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf175351e20cd5241bd883f9497eb241, type: 3}
   m_Name: Gun Fire
   m_EditorClassIdentifier: 
+  AudioMixer: {fileID: 24318998, guid: 9bc86df9960a34ed085ec28b2b3281d4, type: 2}
   AudioClips:
   - {fileID: 8300000, guid: 351606bda3e304e838fa3eb1c61c5ab9, type: 3}
   - {fileID: 8300000, guid: 83cf5c53de4904882b85d86dcb983998, type: 3}
