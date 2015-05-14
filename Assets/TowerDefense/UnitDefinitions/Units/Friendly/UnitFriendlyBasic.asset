@@ -11,16 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c85c464db26c4981a6c9c1156267245, type: 3}
   m_Name: UnitFriendlyBasic
   m_EditorClassIdentifier: 
+  Movement: {fileID: 11400000, guid: 702a7906baab0434799a7dd35d3bfad1, type: 2}
+  RadiusOfCollision: 1
   Team: 0
   PowerValue: 1
   MinWave: 1
   spawnChance: .200000003
-  Movement: {fileID: 11400000, guid: 702a7906baab0434799a7dd35d3bfad1, type: 2}
-  Projectile: {fileID: 11400000, guid: f5fb41f48f540480ebed96f2f16f2033, type: 2}
-  Speed: 1
+  WeaponConfig: {fileID: 11400000, guid: f5fb41f48f540480ebed96f2f16f2033, type: 2}
   Health: 100
   FireRate: 3
-  RadiusOfCollision: 1
   RadiusOfPlacement: 5
   RadiusOfAffect: 10
   DropBonusPct: 1

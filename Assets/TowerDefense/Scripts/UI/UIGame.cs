@@ -12,6 +12,7 @@ public class UIGame : MonoBehaviour {
 	public Text currentWave;
 
 	public Button[] unitButtons;
+	public Text[] unitCostValues;
 	public Button[] cancelButtons;
 
 	public SimUnitConfig[] units;
@@ -42,6 +43,7 @@ public class UIGame : MonoBehaviour {
 	{
 		for (int i = 0; i < unitButtons.Length; i++)
 		{
+			unitCostValues[i].text = units[i].Cost.ToString();
 			unitButtons[i].interactable = (mainGame.getCurrency() >= units[i].Cost);
 		}
 	}

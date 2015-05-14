@@ -49,7 +49,6 @@ public class UnitPlacement : MonoBehaviour
 
 		placementPreviewObject = (GameObject)Instantiate(_selectedUnitType.UnitPrefab, pos, Quaternion.identity);
 		UnitComponent uc = placementPreviewObject.GetComponent<UnitComponent>();
-		uc.SetSimUnit(_selectedUnitType);
 		uc.SetAreaVisuals(_selectedUnitType);
 		uc.ShowAreas(true);
 	}

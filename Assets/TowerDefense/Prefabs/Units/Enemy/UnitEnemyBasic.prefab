@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 463556}
-  - 114: {fileID: 11411560}
+  - 114: {fileID: 11482896}
   m_Layer: 0
   m_Name: UnitEnemyBasic
   m_TagString: Untagged
@@ -319,7 +319,7 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &11411560
+--- !u!114 &11482896
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
