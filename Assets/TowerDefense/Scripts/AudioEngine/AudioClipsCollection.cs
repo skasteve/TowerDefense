@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 using System.Collections;
 
 public class AudioClipsCollection : ScriptableObject {
+	public AudioMixerGroup AudioMixer;
 	public AudioClip[] AudioClips;
 
 	public AudioClip GetRandom() {

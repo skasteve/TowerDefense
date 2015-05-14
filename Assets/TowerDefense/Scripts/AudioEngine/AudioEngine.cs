@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -7,12 +8,6 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 	public static AudioEngine instance;
 
 	public AudioEngineConfig EngineConfig;
-
-	[Range(0.0f, 1.0f)]
-	public float AmbientVolume = 0.05f;
-
-	[Range(0.0f, 1.0f)]
-	public float AmbientEventVolume = 0.05f;
 
 	public bool ShowTestUI = true;
 
@@ -26,56 +21,51 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 	{
 		instance = this;
 		sourcepool = new List<AudioSource>();
-		AmbientSource = gameObject.AddComponent<AudioSource>();
-		AmbientSource.volume = AmbientVolume;
 	}
 
 	public void PlayAmbientAudio() {
-		PlayAmbientAudio(EngineConfig.ACCAmbientAudio.GetRandom());
+		PlayAmbientAudio (EngineConfig.ACCAmbientAudio);
 	}
 
-	private void PlayAmbientAudio(AudioClip clip) {
-		AmbientSource.Stop();
-		AmbientSource.clip = clip;
-		AmbientSource.loop = true;
-		AmbientSource.Play();
+	private void PlayAmbientAudio(AudioClipsCollection acc) {
+		StopSourceSafe(AmbientSource);
+		AmbientSource = CreateSource(acc,true);
 	}
-
+	
 	public void StopAmbientAudio() {
-		AmbientSource.Stop ();
+		StopSourceSafe(AmbientSource);
 	}
 
 	public void PlayAmbientEvent() {
-		AudioSource  source = CreateSource (EngineConfig.ACCAmbientEvents.GetRandom(), false);
-		source.volume = AmbientEventVolume;
+		CreateSource (EngineConfig.ACCAmbientEvents, false);
 	}
 
 	public void PlayButtonSound() {
-		CreateSource(EngineConfig.ACCButtonClicks.GetRandom(), false);
+		CreateSource(EngineConfig.ACCButtonClicks, false);
 	}
 
 	public void PlayUnitPlaced(AudioUnitConfig auc) {
-		CreateSource(auc.OnUnitPlaced.GetRandom(), false);
+		CreateSource(auc.OnUnitPlaced, false);
 	}
 
 	public AudioSource PlayUnitPlacedLoop(AudioUnitConfig auc) {
-		return CreateSource(auc.OnUnitPlacedLoop.GetRandom(), true);
+		return CreateSource(auc.OnUnitPlacedLoop, true);
 	}
 
 	public void PlayUnitReachedGoal(AudioUnitConfig auc) {
-		CreateSource (auc.OnReachedGoal.GetRandom(), false);
+		CreateSource (auc.OnReachedGoal, false);
 	}
 	
 	public void PlayExplode(AudioUnitConfig auc) {
-		CreateSource (auc.OnExplode.GetRandom(), false);
+		CreateSource (auc.OnExplode, false);
 	}
 
 	public void PlayUnitUpgraded(AudioUnitConfig auc) {
-		CreateSource (auc.OnUpgraded.GetRandom(), false);
+		CreateSource (auc.OnUpgraded, false);
 	}
 
 	public void PlayMenuLoop() {
-		PlayAmbientAudio(EngineConfig.ACCMenuLoop.GetRandom());
+		PlayAmbientAudio(EngineConfig.ACCMenuLoop);
 	}
 
 	public void StopMenuLoop() {
@@ -83,31 +73,35 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 	}
 
 	public void PlayStart() {
-		CreateSource (EngineConfig.ACCPlayStartGame.GetRandom(), false);
+		CreateSource (EngineConfig.ACCPlayStartGame, false);
 	}
 
 	public void PlayWin() {
-		CreateSource(EngineConfig.ACCPlayWinGame.GetRandom(), false);
+		CreateSource(EngineConfig.ACCPlayWinGame, false);
 	}
 
 	public void PlayIncomingWave() {
-		CreateSource(EngineConfig.ACCPlayIncomingWave.GetRandom(), false);
+		CreateSource(EngineConfig.ACCPlayIncomingWave, false);
 	}
 
 	public void PlayWeaponFire(AudioWeaponConfig proj) {
-		CreateSource (proj.OnFire.GetRandom(), false);
+		CreateSource (proj.OnFire, false);
 	}
 
 	public AudioSource PlayWeaponFireLoop(AudioWeaponConfig proj) {
-		return CreateSource (proj.OnFireLoop.GetRandom(), true);
+		return CreateSource (proj.OnFireLoop, true);
 	}
 
 	public void PlayWeaponImpact(AudioWeaponConfig proj) {
-		CreateSource (proj.OnImpact.GetRandom(), false);
+		CreateSource (proj.OnImpact, false);
 	}
 
 	public void PlayPickupCoin() {
-		CreateSource(EngineConfig.ACCPickupCoin.GetRandom(),false);
+		CreateSource(EngineConfig.ACCPickupCoin,false);
+	}
+
+	public AudioSource CreateSource(AudioClipsCollection audioclipscollection, bool looping) {
+		return CreateSource (audioclipscollection.GetRandom(), looping, audioclipscollection.AudioMixer);
 	}
 
 	public void StopSourceSafe(AudioSource source) {
@@ -116,7 +110,7 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 		}
 	}
 
-	public AudioSource CreateSource(AudioClip clip, bool looping) {
+	public AudioSource CreateSource(AudioClip clip, bool looping, AudioMixerGroup mixergroup=null) {
 		AudioSource source = null;
 		foreach(AudioSource s in sourcepool) {
 			if(!s.isPlaying) {
@@ -133,6 +127,7 @@ public class AudioEngine : MonoBehaviour, IAudioEngine {
 		source.volume = 1.0f;
 		source.clip =  clip;
 		source.loop = looping;
+		source.outputAudioMixerGroup = mixergroup;
 		source.Play();
 		return source;
 	}
