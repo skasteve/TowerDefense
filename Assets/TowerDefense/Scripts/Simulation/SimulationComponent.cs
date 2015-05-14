@@ -1,12 +1,12 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class SimulationComponent : MonoBehaviour {
 
 	public Transform goal;
 
-	public SimUnit friendlydef;
-	public SimUnit enemydef;
+	public SimUnitConfig friendlydef;
+	public SimUnitConfig enemydef;
 
 	public GameObject testUnit;
 
@@ -27,7 +27,7 @@ public class SimulationComponent : MonoBehaviour {
 		}
 	}
 
-	public void AddUnit(GameObject go, SimUnit unit) {
+	public void AddUnit(GameObject go, SimUnitConfig unit) {
 		UnitComponent ucomp = go.AddComponent<UnitComponent>();
 		ucomp.SetSimUnit(unit);
 	}

@@ -7,7 +7,7 @@ public class SimObjectInstance : IOctreeObject {
 	public delegate void OnDestroyEventHandler(object sender, EventArgs e);
 	public event OnDestroyEventHandler OnDestroy;
 
-	public SimObject SimObjectConfig {
+	public SimObjectConfig SimObjectConfig {
 		get;
 		private set;
 	}
@@ -57,7 +57,7 @@ public class SimObjectInstance : IOctreeObject {
 		private set;
 	}
 
-	public SimObjectInstance(Simulation sim, SimObject simobject, Vector3 startpos) {
+	public SimObjectInstance(Simulation sim, SimObjectConfig simobject, Vector3 startpos) {
 		Sim = sim;
 		SimObjectConfig = simobject;
 		oldposition = startpos;

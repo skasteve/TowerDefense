@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.IO;
 
-public class SimUnit : SimObject
+public class SimUnitConfig : SimObjectConfig
 {
 	public enum ETeam {
 		Friendly,
@@ -23,7 +23,7 @@ public class SimUnit : SimObject
 	public float RadiusOfAffect = 10.0f;
 
 	public float DropBonusPct = 1.0f;
-	public SimDrop DropBonus;
+	public SimDropConfig DropBonus;
 
 	public AudioUnitConfig AudioConfig;
 	public int Cost = 1;

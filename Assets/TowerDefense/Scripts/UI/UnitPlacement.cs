@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -8,7 +8,7 @@ using System.Collections.Generic;
 public class UnitPlacement : MonoBehaviour
 {
 	public UIGame gameUI;
-	private SimUnit _selectedUnitType = null;
+	private SimUnitConfig _selectedUnitType = null;
 
 	private List<UnitComponent> placedUnits = new List<UnitComponent>(); 
 	public static bool placingUnit = false;
@@ -88,7 +88,7 @@ public class UnitPlacement : MonoBehaviour
 		return true;
 	}
 
-	public void SelectUnit(SimUnit unit)
+	public void SelectUnit(SimUnitConfig unit)
 	{
 		_selectedUnitType = unit;
 		placingUnit = true;

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -20,7 +20,7 @@ public class SimUnitInstance : SimObjectInstance {
 		private set;
 	}
 
-	public SimUnit Unit {
+	public SimUnitConfig Unit {
 		get;
 		private set;
 	}
@@ -32,7 +32,7 @@ public class SimUnitInstance : SimObjectInstance {
 	private List<DamageDef> DamageList = new List<DamageDef>();
 
 
-	public SimUnitInstance(Simulation sim, SimUnit unit, Vector3 startpos, ISimUnitEventHandler handler) : base(sim, unit, startpos) {
+	public SimUnitInstance(Simulation sim, SimUnitConfig unit, Vector3 startpos, ISimUnitEventHandler handler) : base(sim, unit, startpos) {
 		Health = unit.Health;
 		Unit = unit;
 		eventhandler = handler;
@@ -119,7 +119,7 @@ public class SimUnitInstance : SimObjectInstance {
 		}
 	}
 
-	private void OnDropBonus(SimDrop bonus) {
+	private void OnDropBonus(SimDropConfig bonus) {
 		if(eventhandler!=null) {
 			eventhandler.OnSimDropBonus(this,bonus);
 		}

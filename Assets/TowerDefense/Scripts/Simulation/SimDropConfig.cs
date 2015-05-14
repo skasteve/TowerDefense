@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SimDrop : ScriptableObject {
+public class SimDropConfig : ScriptableObject {
 	public float CurrencyValue;
 }

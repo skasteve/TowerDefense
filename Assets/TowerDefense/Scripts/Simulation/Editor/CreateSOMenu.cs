@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEditor;
 using System.IO;
 
@@ -17,7 +17,7 @@ public static class ScriptableObjectUtility
 	
 	[MenuItem("TowerDefense/Simulation/Create Unit Type")]
 	public static void CreateUnitType() {
-		CreateAsset<SimUnit>();
+		CreateAsset<SimUnitConfig>();
 	}
 	
 	/// <summary>

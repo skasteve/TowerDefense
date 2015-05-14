@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
 
 public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
-	private SimUnit simunit;
+	private SimUnitConfig simunit;
 	public bool followsim = true;
 
 	public GameObject placementArea;
@@ -15,7 +15,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	private static IDictionary<SimUnitInstance, Transform> _unitMapping = new Dictionary<SimUnitInstance, Transform>();
 
-	public void SetSimUnit(SimUnit inst) {
+	public void SetSimUnit(SimUnitConfig inst) {
 		if (_simunitinst == null && inst != null) {
 			simunit = inst;
 			_simunitinst = SimulationComponent.CurrentSim.AddUnit(simunit,transform.position, this);
@@ -38,7 +38,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		}
 	}
 
-	public void SetAreaVisuals(SimUnit unit)
+	public void SetAreaVisuals(SimUnitConfig unit)
 	{
 		float placementAreaScale = unit.RadiusOfPlacement / 2;
 		float attackAreaScale = unit.RadiusOfAffect / 2;
@@ -90,7 +90,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		gameObject.BroadcastMessage("SimOnExplode",SendMessageOptions.DontRequireReceiver);
 	}
 
-	public void OnSimDropBonus (SimUnitInstance sender, SimDrop drop)
+	public void OnSimDropBonus (SimUnitInstance sender, SimDropConfig drop)
 	{
 		gameObject.BroadcastMessage("SimOnDropBonus", drop, SendMessageOptions.DontRequireReceiver);
 	}
