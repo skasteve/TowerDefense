@@ -29,4 +29,6 @@ public class SimUnitConfig : SimObjectConfig
 	public int Cost = 1;
 
 	public GameObject UnitPrefab;
+
+	public int Points = 1;
 }

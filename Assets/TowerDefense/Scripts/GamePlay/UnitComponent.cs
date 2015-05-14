@@ -13,6 +13,9 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 	public Action onSimDestroy;
 
+	public delegate void SimExplodeAction(SimUnitConfig simUnit);
+	public static event SimExplodeAction onSimExplode;
+
 	private SimUnitInstance _simunitinst;
 
 	private static IDictionary<SimUnitInstance, Transform> _unitMapping = new Dictionary<SimUnitInstance, Transform>();
@@ -90,6 +93,9 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 	public void OnSimExplode (SimUnitInstance sender)
 	{
 		gameObject.BroadcastMessage("SimOnExplode",SendMessageOptions.DontRequireReceiver);
+
+		if (onSimExplode != null)
+			onSimExplode(simunit);
 	}
 
 	public void OnSimDropBonus (SimUnitInstance sender, SimDropConfig drop)

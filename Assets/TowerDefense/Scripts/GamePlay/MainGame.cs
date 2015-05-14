@@ -22,6 +22,8 @@ public class MainGame : MonoBehaviour {
 		StartCoroutine(StartCountDown());
 
 		waveSpawner.onWaveComplete += OnWaveComplete;
+		
+		UnitComponent.onSimExplode += HandleonSimExplode;
 	}
 
 	private IEnumerator StartCountDown()
@@ -66,5 +68,18 @@ public class MainGame : MonoBehaviour {
 	public int getCurrency()
 	{
 		return _currencyBalance;
+	}
+
+	public void incrementScore(int score)
+	{
+		_score += score;
+
+		gameUI.setScore(_score);
+	}
+	
+	private void HandleonSimExplode (SimUnitConfig simUnit)
+	{
+		incrementCurrency(simUnit.Cost);
+		incrementScore(simUnit.Points);
 	}
 }
