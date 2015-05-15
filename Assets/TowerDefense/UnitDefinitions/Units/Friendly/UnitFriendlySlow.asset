@@ -13,6 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Movement: {fileID: 11400000, guid: 702a7906baab0434799a7dd35d3bfad1, type: 2}
   RadiusOfCollision: 1
+  EnableCollisionCheck: 0
+  AddToOcttree: 0
   Team: 0
   PowerValue: 1
   MinWave: 1
@@ -20,10 +22,11 @@ MonoBehaviour:
   WeaponConfig: {fileID: 11400000, guid: bc8139b8c449243c695fbf3225b3398c, type: 2}
   Health: 100
   FireRate: 1
-  RadiusOfPlacement: 10
+  RadiusOfPlacement: 5
   RadiusOfAffect: 15
   DropBonusPct: 1
   DropBonus: {fileID: 0}
   AudioConfig: {fileID: 0}
   Cost: 75
   UnitPrefab: {fileID: 172992, guid: 6e42d5b97149e476aaedcd04830335eb, type: 2}
+  Points: 1

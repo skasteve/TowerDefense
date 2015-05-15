@@ -123,7 +123,8 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 		Destroy(gameObject);
 
 		AudioEngine.instance.PlayExplode(AudioEngine.instance.EngineConfig.UnitConfigs[1]);
-		GameObject destroyEffect = (GameObject)Instantiate(destructionEffect, this.transform.position, Quaternion.identity);
+		Instantiate(destructionEffect, this.transform.position, Quaternion.identity);
+		CameraShake.instance.Shake();
 	}
 	#endregion
 }

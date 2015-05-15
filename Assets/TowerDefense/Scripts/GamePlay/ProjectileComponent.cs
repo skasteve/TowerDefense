@@ -26,7 +26,7 @@ public class ProjectileComponent : MonoBehaviour {
 			transform.rotation = new Quaternion(slerp.x, slerp.y, transform.rotation.z, transform.rotation.w);
 		}
 
-		if (startTime != null && target == null)
+		if (startTime > 0 && target == null)
 			GameObject.Destroy(this.gameObject);
 	}
 
@@ -40,14 +40,14 @@ public class ProjectileComponent : MonoBehaviour {
 		StartCoroutine(TimeOut());
 
 		AudioEngine.instance.PlayWeaponFire(audioConfig);
-		GameObject mussleParticle = (GameObject)Instantiate(mussleFlash, this.transform.position, Quaternion.identity);
+		Instantiate(mussleFlash, this.transform.position, Quaternion.identity);
 	}
 
 	private IEnumerator TimeOut()
 	{
 		yield return new WaitForSeconds(impactTime);
 		AudioEngine.instance.PlayWeaponImpact(audioConfig);
-		GameObject impactParticle = (GameObject)Instantiate(impactEffect, this.transform.position, Quaternion.identity);
+		Instantiate(impactEffect, this.transform.position, Quaternion.identity);
 		GameObject.Destroy(this.gameObject);
 	}
 }

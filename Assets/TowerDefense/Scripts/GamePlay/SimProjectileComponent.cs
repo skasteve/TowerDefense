@@ -23,7 +23,7 @@ public class SimProjectileComponent : MonoBehaviour {
 		}
 
 		AudioEngine.instance.PlayWeaponFire(audioConfig);
-		GameObject mussleParticle = (GameObject)Instantiate(mussleFlash, this.transform.position, Quaternion.identity);
+		Instantiate(mussleFlash, this.transform.position, Quaternion.identity);
 
 		ProjectileInstance = SimulationComponent.CurrentSim.AddProjectile(config, transform.position);
 		ProjectileInstance.OnCollision += OnCollision;
@@ -38,7 +38,7 @@ public class SimProjectileComponent : MonoBehaviour {
 	void OnCollision(SimProjectileInstance inst, SimProjectileInstance.OnCollisionEventArgs args) {
 		gameObject.BroadcastMessage("SimOnExplode",SendMessageOptions.DontRequireReceiver);
 		AudioEngine.instance.PlayWeaponImpact(audioConfig);
-		GameObject impactParticle = (GameObject)Instantiate(impactEffect, this.transform.position, Quaternion.identity);
+		Instantiate(impactEffect, this.transform.position, Quaternion.identity);
 		Destroy(gameObject);
 	}
 

@@ -73,7 +73,7 @@ public class MainGame : MonoBehaviour {
 		StartWave();
 	}
 
-	private void StartWave()
+	public void StartWave()
 	{
 		waveSpawner.NextWave();
 		gameUI.setWave(waveSpawner.GetWaveNum());
