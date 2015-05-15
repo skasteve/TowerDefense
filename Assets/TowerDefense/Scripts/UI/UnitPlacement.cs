@@ -15,6 +15,11 @@ public class UnitPlacement : MonoBehaviour
 	private Vector3 placingPos = Vector3.zero;
 	private GameObject placementPreviewObject;
 
+	void Awake()
+	{
+		UIUnitOptions.onSellUnit += HandleonSellUnit;
+	}
+
 	void Update()
 	{
 		if (placingUnit)
@@ -116,5 +121,11 @@ public class UnitPlacement : MonoBehaviour
 		{
 			unit.ShowAreas(show);
 		}
+	}
+	
+	void HandleonSellUnit (UnitComponent unitComponent)
+	{
+		if (placedUnits.Contains(unitComponent))
+			placedUnits.Remove(unitComponent);
 	}
 }

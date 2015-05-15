@@ -33,6 +33,7 @@ public class MainGame : MonoBehaviour {
 		waveSpawner.onWaveComplete += OnWaveComplete;
 		
 		UnitComponent.onSimExplode += HandleonSimExplode;
+		UIUnitOptions.onSellUnit += HandleonSellUnit;
 
 		gameClock.totalTime = gameTime;
 
@@ -113,7 +114,12 @@ public class MainGame : MonoBehaviour {
 
 		gameUI.setScore(_score);
 	}
-	
+
+	void HandleonSellUnit (UnitComponent unitComponent)
+	{
+		incrementCurrency(unitComponent.simunit.Cost / 2);
+	}
+
 	private void HandleonSimExplode (SimUnitConfig simUnit)
 	{
 		incrementCurrency(simUnit.Cost);

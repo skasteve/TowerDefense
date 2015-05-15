@@ -5,7 +5,7 @@ using System;
 
 public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
-	private SimUnitConfig simunit;
+	public SimUnitConfig simunit;
 	public bool followsim = true;
 
 	public UnitButton unitButton;
@@ -29,6 +29,10 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 			_unitMapping.Add (_simunitinst, this.transform);
 
 			SetAreaVisuals(simunit);
+		}
+		else if (_simunitinst != null && inst == null)
+		{
+			SimulationComponent.CurrentSim.RemoveUnit(_simunitinst);
 		}
 	}
 
@@ -122,9 +126,12 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 
 		Destroy(gameObject);
 
-		AudioEngine.instance.PlayExplode(AudioEngine.instance.EngineConfig.UnitConfigs[1]);
-		Instantiate(destructionEffect, this.transform.position, Quaternion.identity);
-		CameraShake.instance.Shake();
+		if (destructionEffect != null)
+		{
+			AudioEngine.instance.PlayExplode(AudioEngine.instance.EngineConfig.UnitConfigs[1]);
+			Instantiate(destructionEffect, this.transform.position, Quaternion.identity);
+			CameraShake.instance.Shake();
+		}
 	}
 	#endregion
 }

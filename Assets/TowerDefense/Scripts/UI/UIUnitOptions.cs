@@ -13,6 +13,11 @@ public class UIUnitOptions : MonoBehaviour {
 	public GameObject cancelUnitOptions;
 	public GameObject openUnitOptions;
 
+	public UnitComponent unitComponent;
+
+	public delegate void SellUnitAction(UnitComponent UnitComponent);
+	public static event SellUnitAction onSellUnit;
+
 	void Awake ()
 	{
 		upgradeButton.SetActive(false);
@@ -23,7 +28,7 @@ public class UIUnitOptions : MonoBehaviour {
 
 	public void SetUnitOptions(int upgradeLevel, int upgradeCost, int sellBackValue)
 	{
-		this.upgradeLevel.text = upgradeLevel.ToString();
+		this.upgradeLevel.text = "Lvl " + upgradeLevel.ToString();
 		this.upgradeCost.text = upgradeCost.ToString();
 		this.sellBackValue.text = sellBackValue.ToString();
 	}
@@ -41,5 +46,15 @@ public class UIUnitOptions : MonoBehaviour {
 	public void playButtonSound()
 	{
 		AudioEngine.instance.PlayButtonSound();
+	}
+
+	public void sellUnit()
+	{
+		if (onSellUnit != null)
+			onSellUnit(unitComponent);
+
+		Destroy(gameObject);
+
+		unitComponent.SetSimUnit(null);
 	}
 }

@@ -60,6 +60,16 @@ public class Simulation {
 		return inst;
 	}
 
+	public void RemoveUnit(SimUnitInstance inst)
+	{
+		if(inst.UnitConfig.Team==SimUnitConfig.ETeam.Friendly) {
+			FriendlySimUnits.Remove(inst);
+		} else {
+			EnemySimUnits.Remove(inst);
+		}
+		inst.Destroy();
+	}
+
 	public void Update(float deltatime) {
 		Simulate(deltatime);
 	}
