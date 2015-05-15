@@ -13,7 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioMixer: {fileID: 24318998, guid: 9bc86df9960a34ed085ec28b2b3281d4, type: 2}
   AudioClips:
-  - {fileID: 8300000, guid: 351606bda3e304e838fa3eb1c61c5ab9, type: 3}
-  - {fileID: 8300000, guid: 83cf5c53de4904882b85d86dcb983998, type: 3}
-  - {fileID: 8300000, guid: 1d69b383b0c2b4fd8906349e329f2b21, type: 3}
-  - {fileID: 8300000, guid: e72a52f09a0f141b498e37d0112758dc, type: 3}
+  - {fileID: 8300000, guid: c33f59ae850a94a43bc6068342707ecc, type: 3}
