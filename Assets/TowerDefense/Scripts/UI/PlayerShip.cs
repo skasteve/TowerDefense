@@ -15,6 +15,8 @@ public class PlayerShip : MonoBehaviour
 	private Vector3 _screenPos = Vector3.zero;
 	private Vector3 _targetPos = Vector3.zero;
 
+	private bool GunsOn = false;
+
 	void Update()
 	{
 		if(ShouldControlShip()) {
@@ -50,8 +52,18 @@ public class PlayerShip : MonoBehaviour
 		transform.position = Vector3.Lerp(transform.position, _targetPos, Time.deltaTime * speed);
 	}
 
+	//Broadcast message received from MainGame
+	void StartWave() {
+		GunsOn = true;
+	}
+
+	//Broadcast message received from MainGame
+	void OnWaveComplete() {
+		GunsOn = false;
+	}
+
 	bool ShouldFireProjectiles() {
-		if(Time.time >= _nextfiretime && FireRate > 0.0f) {
+		if(GunsOn && Time.time >= _nextfiretime && FireRate > 0.0f) {
 			_nextfiretime = Time.time + 1.0f/FireRate;
 			return true;
 		}

@@ -18,6 +18,8 @@ public class MainGame : MonoBehaviour {
 
 	private const int COUNTDOWN_TIME_SEC = 5;
 
+	private PlayerShip playerShip;
+
 	public void StartGame()
 	{
 		AudioEngine.instance.PlayStart();
@@ -73,14 +75,23 @@ public class MainGame : MonoBehaviour {
 		StartWave();
 	}
 
+	void BroadcastToPlayerShip(string message) {
+		if(playerShip==null) {
+			playerShip = FindObjectOfType<PlayerShip>();
+		}
+		playerShip.BroadcastMessage(message);
+	}
+
 	public void StartWave()
 	{
+		BroadcastToPlayerShip("StartWave");
 		waveSpawner.NextWave();
 		gameUI.setWave(waveSpawner.GetWaveNum());
 	}
 
 	void OnWaveComplete()
 	{
+		BroadcastToPlayerShip("OnWaveComplete");
 		StartCoroutine(StartCountDown());
 	}
 
