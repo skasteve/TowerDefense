@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 471660}
   - 54: {fileID: 5497282}
+  - 114: {fileID: 11425386}
   m_Layer: 10
   m_Name: Plane04_condor
   m_TagString: nemico
@@ -544,6 +545,22 @@ MonoBehaviour:
   unitButton: {fileID: 11488334}
   placementArea: {fileID: 109694}
   attackArea: {fileID: 175518}
+  destructionEffect: {fileID: 0}
+--- !u!114 &11425386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef81956117c1a460db3aedd39d6fda25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wobblespeed: 2
+  wobbleamount: 1
+  maxrolldegrees: 45
+  maxrollspeed: 1
 --- !u!114 &11432240
 MonoBehaviour:
   m_ObjectHideFlags: 1

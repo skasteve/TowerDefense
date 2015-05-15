@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 497078}
   - 199: {fileID: 19909506}
   - 198: {fileID: 19807946}
+  - 114: {fileID: 11495756}
   m_Layer: 15
   m_Name: Plane07_colibri
   m_TagString: Sight
@@ -151,7 +152,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -7.07009506, y: 16.2001953, z: 3.98753023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 497078}
@@ -364,6 +365,7 @@ MonoBehaviour:
   unitButton: {fileID: 11481898}
   placementArea: {fileID: 179154}
   attackArea: {fileID: 185270}
+  destructionEffect: {fileID: 0}
 --- !u!114 &11471560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -389,6 +391,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitOptionsObject: {fileID: 170030, guid: 7f3d5fc346bec4f2a9e53a5c35f2edfb, type: 2}
+--- !u!114 &11495756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef81956117c1a460db3aedd39d6fda25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wobblespeed: 2
+  wobbleamount: 1
+  maxrolldegrees: 45
+  maxrollspeed: 1
 --- !u!135 &13571314
 SphereCollider:
   m_ObjectHideFlags: 1
