@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinSpeed: 1
   MaxSpeed: 2
-  WobbleFrequency: {x: .200000003, y: 0, z: 0}
-  WobbleAmplitute: {x: .100000001, y: 0, z: 0}
+  WobbleFrequency: {x: .0500000007, y: 0, z: 0}
+  WobbleAmplitute: {x: .00499999989, y: 0, z: 0}

@@ -8,9 +8,9 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: Projectile1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION
+  m_ShaderKeywords: _ALPHABLEND_ON _EMISSION
   m_LightmapFlags: 1
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -85,11 +85,11 @@ Material:
       data:
         first:
           name: _SrcBlend
-        second: 1
+        second: 5
       data:
         first:
           name: _DstBlend
-        second: 0
+        second: 10
       data:
         first:
           name: _Parallax
@@ -97,7 +97,7 @@ Material:
       data:
         first:
           name: _ZWrite
-        second: 1
+        second: 0
       data:
         first:
           name: _Glossiness
@@ -121,11 +121,11 @@ Material:
       data:
         first:
           name: _EmissionScaleUI
-        second: .239999995
+        second: .289999992
       data:
         first:
           name: _Mode
-        second: 0
+        second: 2
       data:
         first:
           name: _Metallic
@@ -134,12 +134,12 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: .0335294157, g: .239999995, b: .222912803, a: .239999995}
+        second: {r: .286558807, g: .289999992, b: .0405147076, a: .289999992}
       data:
         first:
           name: _Color
-        second: {r: .410750508, g: 1, b: .389705896, a: 1}
+        second: {r: .470588207, g: .387543201, b: .169550151, a: 1}
       data:
         first:
           name: _EmissionColorUI
-        second: {r: .139705896, g: 1, b: .928803384, a: 1}
+        second: {r: .988133848, g: 1, b: .139705896, a: 1}

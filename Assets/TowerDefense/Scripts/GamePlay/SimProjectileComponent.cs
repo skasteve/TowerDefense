@@ -3,8 +3,14 @@ using System.Collections;
 using System;
 
 public class SimProjectileComponent : MonoBehaviour {
-
+	
 	public SimProjectileConfig ProjectileConfig;
+
+	public GameObject mussleFlash;
+	public GameObject impactEffect;
+
+	public AudioWeaponConfig audioConfig;
+
 	private SimProjectileInstance ProjectileInstance;
 
 	void Start() {
@@ -15,6 +21,9 @@ public class SimProjectileComponent : MonoBehaviour {
 		if(ProjectileInstance!=null) {
 			throw new Exception("ProjectileInstance is already set!!!!");
 		}
+
+		AudioEngine.instance.PlayWeaponFire(audioConfig);
+		GameObject mussleParticle = (GameObject)Instantiate(mussleFlash, this.transform.position, Quaternion.identity);
 
 		ProjectileInstance = SimulationComponent.CurrentSim.AddProjectile(config, transform.position);
 		ProjectileInstance.OnCollision += OnCollision;
@@ -28,6 +37,8 @@ public class SimProjectileComponent : MonoBehaviour {
 
 	void OnCollision(SimProjectileInstance inst, SimProjectileInstance.OnCollisionEventArgs args) {
 		gameObject.BroadcastMessage("SimOnExplode",SendMessageOptions.DontRequireReceiver);
+		AudioEngine.instance.PlayWeaponImpact(audioConfig);
+		GameObject impactParticle = (GameObject)Instantiate(impactEffect, this.transform.position, Quaternion.identity);
 		Destroy(gameObject);
 	}
 

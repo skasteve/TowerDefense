@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0558178b59745ec92d8ceaefce2c11, type: 3}
   m_Name: MainMissileLevel1
   m_EditorClassIdentifier: 
-  MinSpeed: -5
-  MaxSpeed: -5
+  MinSpeed: -7
+  MaxSpeed: -7
   WobbleFrequency: {x: 0, y: 0, z: 0}
   WobbleAmplitute: {x: 0, y: 0, z: 0}

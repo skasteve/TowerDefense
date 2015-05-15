@@ -11,6 +11,7 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 	public UnitButton unitButton;
 	public GameObject placementArea;
 	public GameObject attackArea;
+	public GameObject destructionEffect;
 
 	public Action onSimDestroy;
 
@@ -120,6 +121,9 @@ public class UnitComponent : MonoBehaviour, ISimUnitEventHandler {
 			onSimDestroy();
 
 		Destroy(gameObject);
+
+		AudioEngine.instance.PlayExplode(AudioEngine.instance.EngineConfig.UnitConfigs[1]);
+		GameObject destroyEffect = (GameObject)Instantiate(destructionEffect, this.transform.position, Quaternion.identity);
 	}
 	#endregion
 }

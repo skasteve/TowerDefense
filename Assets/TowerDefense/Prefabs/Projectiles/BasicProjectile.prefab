@@ -9,8 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 441628}
   - 33: {fileID: 3347482}
-  - 136: {fileID: 13689224}
   - 23: {fileID: 2397112}
+  - 96: {fileID: 9622636}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -55,7 +55,7 @@ Transform:
   m_GameObject: {fileID: 116614}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .352168918, y: .704337895, z: .352168947}
+  m_LocalScale: {x: .0724051669, y: .0724051446, z: .0724051744}
   m_Children: []
   m_Father: {fileID: 428656}
   m_RootOrder: 0
@@ -89,7 +89,52 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116614}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!96 &9622636
+TrailRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116614}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 2618656ae68244af0baaa5981282aada, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Time: .200000003
+  m_StartWidth: .0799999982
+  m_EndWidth: 0
+  m_Colors:
+    m_Color[0]:
+      serializedVersion: 2
+      rgba: 4294967295
+    m_Color[1]:
+      serializedVersion: 2
+      rgba: 3539992575
+    m_Color[2]:
+      serializedVersion: 2
+      rgba: 2298478591
+    m_Color[3]:
+      serializedVersion: 2
+      rgba: 1090519039
+    m_Color[4]:
+      serializedVersion: 2
+      rgba: 16777215
+  m_MinVertexDistance: .100000001
+  m_Autodestruct: 0
 --- !u!114 &11425154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,20 +146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55351ecadb76a4daa87b49e29d08c3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mussleFlash: {fileID: 116584, guid: 2c94ea5c500944074b84ca1af8a3e05e, type: 2}
+  impactEffect: {fileID: 113396, guid: 1f5ec62cf93c148e4a02afd4198cec72, type: 2}
   audioConfig: {fileID: 11400000, guid: 9de9a43711116434783ce75a1a5edf85, type: 2}
---- !u!136 &13689224
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116614}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

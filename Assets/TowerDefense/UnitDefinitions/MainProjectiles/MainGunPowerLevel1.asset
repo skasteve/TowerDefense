@@ -16,5 +16,5 @@ MonoBehaviour:
   EnableCollisionCheck: 1
   AddToOcttree: 0
   CollidesWithTeam: 1
-  Damage: 100
+  Damage: 5
   Timeout: 10

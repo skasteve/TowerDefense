@@ -49,6 +49,8 @@ public class MainGame : MonoBehaviour {
 
 	private IEnumerator StartCountDown()
 	{
+		AudioEngine.instance.PlayIncomingWave();
+
 		int startTime = COUNTDOWN_TIME_SEC;
 
 		gameUI.countdownText.gameObject.SetActive(true);
@@ -73,7 +75,6 @@ public class MainGame : MonoBehaviour {
 
 	private void StartWave()
 	{
-		AudioEngine.instance.PlayIncomingWave();
 		waveSpawner.NextWave();
 		gameUI.setWave(waveSpawner.GetWaveNum());
 	}

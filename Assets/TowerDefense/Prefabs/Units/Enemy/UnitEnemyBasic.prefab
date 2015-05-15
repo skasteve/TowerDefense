@@ -331,8 +331,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followsim: 1
+  unitButton: {fileID: 0}
   placementArea: {fileID: 179154}
   attackArea: {fileID: 185270}
+  destructionEffect: {fileID: 154198, guid: e199f1b037e7f441487b0c9621331356, type: 2}
 --- !u!135 &13571314
 SphereCollider:
   m_ObjectHideFlags: 1

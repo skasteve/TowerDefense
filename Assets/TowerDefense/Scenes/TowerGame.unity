@@ -163,8 +163,8 @@ MonoBehaviour:
   enemydef: {fileID: 0}
   testUnit: {fileID: 0}
   ShowDebugUI: 0
-  ShowOcttreeObjects: 1
-  ShowOcttreeChecks: 1
+  ShowOcttreeObjects: 0
+  ShowOcttreeChecks: 0
 --- !u!4 &63827623
 Transform:
   m_ObjectHideFlags: 0
@@ -558,8 +558,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 551064798}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 27.8999996, y: 18.5999985, z: -24.0900002}
-  m_LocalScale: {x: 17, y: 40, z: 1}
+  m_LocalPosition: {x: 27.8999996, y: 19.8500004, z: -24.0900002}
+  m_LocalScale: {x: 50, y: 40, z: 1}
   m_Children: []
   m_Father: {fileID: 1942390768}
   m_RootOrder: 0
@@ -634,7 +634,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 2, z: 25}
+  m_Size: {x: 20, y: .5, z: 25}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &560396568
 Transform:
@@ -784,7 +784,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 493536, guid: 6745093c257994f39b7c4f1cc064e85d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 12
+      value: 13.4300003
       objectReference: {fileID: 0}
     - target: {fileID: 493536, guid: 6745093c257994f39b7c4f1cc064e85d, type: 2}
       propertyPath: m_LocalPosition.z
