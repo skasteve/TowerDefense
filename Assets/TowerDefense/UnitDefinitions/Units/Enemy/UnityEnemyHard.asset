@@ -20,7 +20,7 @@ MonoBehaviour:
   MinWave: 4
   spawnChance: .100000001
   WeaponConfig: {fileID: 0}
-  Health: 100
+  Health: 110
   FireRate: 1
   RadiusOfPlacement: 10
   RadiusOfAffect: 10

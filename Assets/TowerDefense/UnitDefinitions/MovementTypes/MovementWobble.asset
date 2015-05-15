@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b0558178b59745ec92d8ceaefce2c11, type: 3}
   m_Name: MovementWobble
   m_EditorClassIdentifier: 
-  MinSpeed: 1
-  MaxSpeed: 2
+  MinSpeed: 2
+  MaxSpeed: 3
   WobbleFrequency: {x: .0500000007, y: 0, z: 0}
   WobbleAmplitute: {x: .00499999989, y: 0, z: 0}
