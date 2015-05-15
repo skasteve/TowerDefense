@@ -5,16 +5,19 @@ public class MainGame : MonoBehaviour {
 
 	public SimulationComponent simulation;
 	public WaveSpawner waveSpawner;
-	public UIGame gameUI;
+	public UIMain mainUI;
 	public GameClock gameClock;
 
 	public float gameTime;
 
 	private int _seed = 0;
 	private int _currencyBalance = 20;
+	private int _currencyEarned = 0;
 	private int _score = 0;
+	private int _unitsDestroyed = 0;
 
 	private float _currentTime = 0;
+	private bool _gameStarted = false;
 
 	private const int COUNTDOWN_TIME_SEC = 5;
 
@@ -24,8 +27,8 @@ public class MainGame : MonoBehaviour {
 	{
 		AudioEngine.instance.PlayStart();
 
-		gameUI.setScore(_score);
-		gameUI.setCurrency(_currencyBalance);
+		mainUI.gameUI.setScore(_score);
+		mainUI.gameUI.setCurrency(_currencyBalance);
 
 		simulation.StartSim(_seed);
 		StartCoroutine(StartCountDown());
@@ -37,12 +40,23 @@ public class MainGame : MonoBehaviour {
 		gameClock.totalTime = gameTime;
 
 		_currentTime = gameTime;
+		_gameStarted = true;
+	}
+
+	public void EndGame()
+	{
+		mainUI.loadEndScreen();
+		mainUI.endUI.setFinalScore(_score, _currencyEarned, _unitsDestroyed, waveSpawner.GetWaveNum());
 	}
 
 	void Update()
 	{
 		if (_currentTime <= 0)
+		{
+			if (_gameStarted)
+				EndGame();
 			return;
+		}
 
 		_currentTime -= Time.deltaTime;
 
@@ -55,22 +69,22 @@ public class MainGame : MonoBehaviour {
 
 		int startTime = COUNTDOWN_TIME_SEC;
 
-		gameUI.countdownText.gameObject.SetActive(true);
+		mainUI.gameUI.countdownText.gameObject.SetActive(true);
 
 		while (startTime > -1)
 		{
-			gameUI.countdownText.text = startTime.ToString();
+			mainUI.gameUI.countdownText.text = startTime.ToString();
 
 			if (startTime == 0)
-				gameUI.countdownText.text = "Go!";
+				mainUI.gameUI.countdownText.text = "Go!";
 
 			startTime--;
 
 			yield return new WaitForSeconds(1);
 		}
 
-		gameUI.countdownText.text = "";
-		gameUI.countdownText.gameObject.SetActive(false);
+		mainUI.gameUI.countdownText.text = "";
+		mainUI.gameUI.countdownText.gameObject.SetActive(false);
 
 		StartWave();
 	}
@@ -86,7 +100,7 @@ public class MainGame : MonoBehaviour {
 	{
 		BroadcastToPlayerShip("StartWave");
 		waveSpawner.NextWave();
-		gameUI.setWave(waveSpawner.GetWaveNum());
+		mainUI.gameUI.setWave(waveSpawner.GetWaveNum());
 	}
 
 	void OnWaveComplete()
@@ -99,7 +113,7 @@ public class MainGame : MonoBehaviour {
 	{
 		_currencyBalance += currency;
 		
-		gameUI.setCurrency(_currencyBalance);
+		mainUI.gameUI.setCurrency(_currencyBalance);
 	}
 
 	public int getCurrency()
@@ -111,12 +125,15 @@ public class MainGame : MonoBehaviour {
 	{
 		_score += score;
 
-		gameUI.setScore(_score);
+		mainUI.gameUI.setScore(_score);
 	}
 	
 	private void HandleonSimExplode (SimUnitConfig simUnit)
 	{
 		incrementCurrency(simUnit.Cost);
+		_currencyEarned += simUnit.Cost;
 		incrementScore(simUnit.Points);
+		_unitsDestroyed++;
+		
 	}
 }

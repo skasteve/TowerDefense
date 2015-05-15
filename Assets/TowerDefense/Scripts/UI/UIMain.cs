@@ -8,6 +8,9 @@ public class UIMain : MonoBehaviour {
 	public GameObject gameScreen;
 	public GameObject endScreen;
 
+	public UIEndscreen endUI;
+	public UIGame gameUI;
+
 	private GameObject _currentScreen;
 
 	void Awake()
